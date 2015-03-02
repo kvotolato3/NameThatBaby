@@ -3,6 +3,9 @@
 <head>
   <title>BabyShower2015</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel='stylesheet' href='normalize.css'>
+  <link rel='stylesheet' href='style.css'>
+  <link href='https://fonts.googleapis.com/css?family=Pinyon+Script' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,4 +14,8 @@
 <%= yield %>
 
 </body>
+
+<footer>
+  <p>&copy; 2015 Kathleen Votolato.</p>
+</footer>
 </html>
