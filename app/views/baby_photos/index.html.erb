@@ -7,12 +7,14 @@
   <h3>On a sheet of paper, write the name of the person that corresponds to the number on the screen.</h3>
 </div>
 <div id='wrapper'>
-  <% @babyphotos.each do |babyphoto_url| %>
+  <% @babyphotos.each do |babyphoto| %>
     <div class='question'>
       <div class='img-wrapper'>
-        <div class='number'><span><%= @babyphotos.index(babyphoto_url)+1 %></span></div>
-        <%= image_tag(babyphoto_url) %>
+        <div class='number'><span><%= @babyphotos.index(babyphoto)+1 %></span></div>
+        <%= image_tag(babyphoto[:url]) %>
+
       </div>
+      <div class='name'><%= babyphoto[:answer] %></div>
     </div>
   <% end %>
   <br class='clear'/>

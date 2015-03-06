@@ -55,8 +55,7 @@ img {
 }
 
 .number {
-  background: black;
-  color: white;
+  color: rgb(250,250,250);
   position: absolute;
   width: 1.5rem;
   padding: 0.15rem;
@@ -67,6 +66,16 @@ img {
 
 .number span {
   vertical-align: -30%;
+}
+
+.name {
+  position: relative;
+  text-align: center;
+  margin-top: -2rem;
+  padding: 0.5rem;
+  margin-bottom: 0rem;
+  background: rgba(128,128,128,.5);
+  color: rgb(250,250,250);
 }
 
 footer {

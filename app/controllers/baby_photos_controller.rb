@@ -1,18 +1,19 @@
 class BabyPhotosController < ApplicationController
   def index
-    @babyphotos = ['photos/Diane Blair 1.jpg',
-      'photos/Diane Blair 2.jpg',
-      'photos/Blair Hall 1.jpg',
-      'photos/Blair Hall 2.jpg',
-      'photos/Eva Csizmadia.jpg',
-      'photos/Karen Kline.jpg',
-      'photos/Kathleen Votolato.jpg',
-      'photos/Kathleen Votolato.jpg',
-      'photos/Kathleen Votolato.jpg',
-      'photos/Kathleen Votolato.jpg',
-      'photos/Kathleen Votolato.jpg',
-      'photos/Kathleen Votolato.jpg',
-      'photos/Kathleen Votolato.jpg',
-      'photos/Kathleen Votolato.jpg']
+    @babyphotos = [
+      {answer: 'Diane Blair', url: 'photos/Diane Blair 1.jpg'},
+      {answer: 'Diane Blair', url: 'photos/Diane Blair 2.jpg'},
+      {answer: 'Blair Hall', url: 'photos/Blair Hall 1.jpg'},
+      {answer: 'Blair Hall', url: 'photos/Blair Hall 2.jpg'},
+      {answer: 'Eva Csizmasia', url: 'photos/Eva Csizmadia.jpg'},
+      {answer: 'Karen Kline', url: 'photos/Karen Kline.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
+      {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'}]
   end
 end
