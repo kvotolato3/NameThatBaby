@@ -5,7 +5,7 @@ class BabyPhotosController < ApplicationController
       {answer: 'Diane Blair', url: 'photos/Diane Blair 2.jpg'},
       {answer: 'Blair Hall', url: 'photos/Blair Hall 1.jpg'},
       {answer: 'Blair Hall', url: 'photos/Blair Hall 2.jpg'},
-      {answer: 'Eva Csizmasia', url: 'photos/Eva Csizmadia.jpg'},
+      {answer: 'Eva Csizmadia', url: 'photos/Eva Csizmadia.jpg'},
       {answer: 'Karen Kline', url: 'photos/Karen Kline.jpg'},
       {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
       {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'},
