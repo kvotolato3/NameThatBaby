@@ -23,11 +23,10 @@ header h3 {
 }
 
 #wrapper {
-  max-width: 90%;
+  max-width: 832px;
   background-color: rgb(236,231,230);
   margin: 0 auto;
-  padding: 1rem;
-  border-radius: 5%;
+  padding: 0.35rem;
 }
 
 .instructions h3 {
@@ -68,7 +67,7 @@ img {
   vertical-align: -30%;
 }
 
-.name {
+.answer {
   position: relative;
   text-align: center;
   margin-top: -2rem;
