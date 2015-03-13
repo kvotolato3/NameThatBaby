@@ -18,12 +18,20 @@ App.flip = function() {
 };
 
 App.unlockAnswers = function() {
-  var guess = $('#pw').val();
-  if (guess === 'jose') {
-    locked = false;
-    $('.lock-answers').toggle();
-    $('.unlock-answers').toggle();
-    $('#pw').toggle();
+  var $pw = $('#pw');
+  var isHidden = $pw.is(':hidden');
+  if (isHidden === true) {
+    $pw.toggle();
+  } else {
+    var guess = $pw.val();
+    if (guess === 'jose') {
+      locked = false;
+      $('.lock-answers').toggle();
+      $('.unlock-answers').toggle();
+      $pw.toggle().val('');
+    } else if (guess === '') {
+      $pw.toggle();
+    };
   };
 };
 
@@ -31,6 +39,5 @@ App.lockAnswers = function() {
   locked = true;
   $('.lock-answers').toggle();
   $('.unlock-answers').toggle();
-  $('#pw').val('').toggle();
 };
 

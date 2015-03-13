@@ -6,33 +6,36 @@
 <div class='instructions'>
   <h3>On a sheet of paper, write the name of the person that corresponds to the number on the screen.</h3>
 </div>
-<div class='container'>
-  <div id='wrapper'>
-    <% @babyphotos.each do |babyphoto| %>
-      <div class='question'>
-        <div class='img-wrapper'>
-          <div class='flip'>
-            <div class='card'>
-              <div class='face front'>
-                <div class='number'><span><%= @babyphotos.index(babyphoto)+1 %></span></div>
-                <%= image_tag(babyphoto[:url]) %>
-              </div>
-              <div class='face back'>
-                <%= babyphoto[:answer] %>
-              </div>
+
+<div id='wrapper'>
+  <% @babyphotos.each do |babyphoto| %>
+    <div class='question'>
+      <div class='img-wrapper'>
+        <div class='flip'>
+          <div class='card'>
+            <div class='face front'>
+              <div class='number'><span><%= @babyphotos.index(babyphoto)+1 %></span></div>
+              <%= image_tag(babyphoto[:url]) %>
+            </div>
+            <div class='face back'>
+              <%= babyphoto[:answer] %>
             </div>
           </div>
         </div>
       </div>
-    <% end %>
-    <br class='clear'/>
-    <div class='pw-form'>
-      <button class='unlock-answers'>Unlock Answers</button>
-      <button class='lock-answers' display: hidden>Lock Answers</button>
-      <input type='text' id='pw' placeholder="Password"/>
     </div>
-  </div>
+  <% end %>
+  <br class='clear'/>
 </div>
+<div class='form-container'>
+  <div class='pw-form'>
+    <i class="fa fa-key unlock-answers"></i>
+    <i class='fa fa-unlock lock-answers' style = "display: none"></i>
+    <input type='password' id='pw' style = "display: none" placeholder="Password"/>
+  </div>
+  <br class='clear'/>
+</div>
+
 
 
 
