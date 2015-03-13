@@ -10,11 +10,19 @@
   <% @babyphotos.each do |babyphoto| %>
     <div class='question'>
       <div class='img-wrapper'>
-        <div class='number'><span><%= @babyphotos.index(babyphoto)+1 %></span></div>
-        <%= image_tag(babyphoto[:url]) %>
-
+        <div class='flip'>
+          <div class='card'>
+            <div class='face front'>
+              <div class='number'><span><%= @babyphotos.index(babyphoto)+1 %></span></div>
+              <%= image_tag(babyphoto[:url]) %>
+            </div>
+            <div class='face back'>
+              <%= babyphoto[:answer] %>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class='answer'><%= babyphoto[:answer] %></div>
+
     </div>
   <% end %>
   <br class='clear'/>
