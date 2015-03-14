@@ -96,6 +96,22 @@ i.fa-key, i.fa-unlock {
   height: 1rem;
 }
 
+::-webkit-input-placeholder {
+  font-family: 'Indie Flower', sans-serif;
+}
+
+:-moz-placeholder {
+  font-family: 'Indie Flower', sans-serif;
+}
+
+::-moz-placeholder {
+  font-family: 'Indie Flower', sans-serif;
+}
+
+:-ms-input-placeholder {
+  font-family: 'Indie Flower', sans-serif;
+}
+
 /***************
 FLIP
 ***************/
