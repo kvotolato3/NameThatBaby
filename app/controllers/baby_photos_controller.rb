@@ -16,6 +16,7 @@ class BabyPhotosController < ApplicationController
       {answer: 'Mira Nakhle', url: 'photos/Mira Nakhle.jpg'},
       {answer: 'Sally Koss', url: 'photos/Sally Koss.jpg'},
       {answer: 'Cyndi Koss', url: 'photos/Cyndi Koss.jpg'},
+      {answer: 'Leona Worsley', url: 'photos/Leona Worsley.jpg'},
       {answer: 'Kathleen Votolato', url: 'photos/Kathleen Votolato.jpg'}]
   end
 end
