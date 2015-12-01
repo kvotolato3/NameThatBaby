@@ -14,10 +14,10 @@
           <div class='card'>
             <div class='face front'>
               <div class='number'><span><%= @babyphotos.index(babyphoto)+1 %></span></div>
-              <%= image_tag(babyphoto[:url]) %>
+              <%= image_tag("https://s3.amazonaws.com/"+babyphoto[:aws_s3_bucket]+"/"+babyphoto[:aws_s3_key]) %>
             </div>
             <div class='face back'>
-              <%= babyphoto[:answer] %>
+              <%= babyphoto[:name] %>
             </div>
           </div>
         </div>
