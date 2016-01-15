@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'baby_photos#index'
+  root 'players#index'
 end

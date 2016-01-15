@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112031547) do
+ActiveRecord::Schema.define(version: 20160115210008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "baby_photos", force: true do |t|
+  create_table "players", force: true do |t|
     t.string   "name"
     t.string   "aws_s3_bucket"
     t.string   "aws_s3_key"

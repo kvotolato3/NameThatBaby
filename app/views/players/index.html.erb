@@ -7,17 +7,17 @@
 </div>
 
 <div id='wrapper'>
-  <% @babyphotos.each do |babyphoto| %>
+  <% @players.each do |player| %>
     <div class='question'>
       <div class='img-wrapper'>
         <div class='flip'>
           <div class='card'>
             <div class='face front'>
-              <div class='number'><span><%= @babyphotos.index(babyphoto)+1 %></span></div>
-              <%= image_tag("https://s3.amazonaws.com/"+babyphoto[:aws_s3_bucket]+"/"+babyphoto[:aws_s3_key]) %>
+              <div class='number'><span><%= @players.index(player)+1 %></span></div>
+              <%= image_tag("https://s3.amazonaws.com/"+player[:aws_s3_bucket]+"/"+player[:aws_s3_key]) %>
             </div>
             <div class='face back'>
-              <%= babyphoto[:name] %>
+              <%= player[:name] %>
             </div>
           </div>
         </div>
