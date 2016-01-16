@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115210008) do
+ActiveRecord::Schema.define(version: 20160116031308) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: true do |t|
+    t.string   "honoree_name"
+    t.date     "event_date"
+    t.string   "password"
+    t.boolean  "require_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "players", force: true do |t|
     t.string   "name"
@@ -22,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160115210008) do
     t.string   "aws_s3_key"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "game_id"
   end
 
 end
