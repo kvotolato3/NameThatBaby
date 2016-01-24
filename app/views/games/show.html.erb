@@ -1,6 +1,8 @@
 <p>
   <strong><%= @game.event_date %></strong>
   <%= @game.honoree_name %>
-  <%= @game.require_password %>
 </p>
+<% if @game.require_password = true %>
+<em> Answers will be password protected </em>
+<% end %>
 <%= link_to 'Play', game_play_path %>
