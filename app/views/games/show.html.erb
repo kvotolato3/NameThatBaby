@@ -1,8 +1,26 @@
-<p>
-  <strong><%= @game.event_date %></strong>
-  <%= @game.honoree_name %>
-</p>
+
+<h3><%= @game.event_date %></h3>
+<h2><%= @game.honoree_name %></h2>
+
 <% if @game.require_password = true %>
-<em> Answers will be password protected </em>
+  <p>
+    <em> Answers will be password protected </em>
+  </p>
 <% end %>
+
 <%= link_to 'Play', game_play_path %>
+
+<h4>Player overview</h4>
+
+<ol>
+  <% @players.each do |player| %>
+    <li>
+      <%= player.name %> |
+      <%= player.email %> |
+      <%= player.aws_s3_bucket %> |
+      <%= player.aws_s3_key %>
+    </li>
+  <%end%>
+</ol>
+
+

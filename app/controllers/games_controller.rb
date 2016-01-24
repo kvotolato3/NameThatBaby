@@ -2,6 +2,7 @@ class GamesController < ApplicationController
  before_action :set_game, only: [:show, :play]
 
   def show
+    @players = @game.players
   end
 
   def play
