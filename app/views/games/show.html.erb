@@ -8,7 +8,10 @@
   </p>
 <% end %>
 
-<%= link_to 'Play', game_play_path %>
+<ul>
+  <li><%= link_to 'Play', play_game_path(@game) %></li>
+  <li><%= link_to 'Edit', edit_game_path(@game) %></li>
+</ul>
 
 <h4>Player overview</h4>
 

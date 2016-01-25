@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
- before_action :set_game, only: [:show, :play]
+ before_action :set_game, only: [:show, :play, :edit, :update]
 
   def show
     @players = @game.players
@@ -8,6 +8,18 @@ class GamesController < ApplicationController
   def play
     @players = @game.players
   end
+
+  def edit
+  end
+
+  def update
+    if @game.update(game_params)
+      redirect_to @game, notice: 'Game was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
 
 private
   def set_game
