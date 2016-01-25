@@ -24,7 +24,7 @@ App.unlockAnswers = function() {
     $pw.toggle();
   } else {
     var guess = $pw.val();
-    if (guess === 'jose') {
+    if (guess === password) {
       locked = false;
       $('.lock-answers').toggle();
       $('.unlock-answers').toggle();
