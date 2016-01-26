@@ -2,8 +2,6 @@ header {
  margin: 0 0 30px 0;
  width: 100%;
  background-image: image-url('https://s3.amazonaws.com/kathleen-namethatbaby/img/paisley.png');
-
-
 }
 
 header h1 {
@@ -24,7 +22,11 @@ header h3 {
   font-family: 'Raleway', sans-serif;
 }
 
-#wrapper {
+.wrapper {
+  padding: 1rem;
+}
+
+#players_wrapper {
   max-width: 1040px;
   background-color: rgb(216,217,192);
   margin: 0 auto;

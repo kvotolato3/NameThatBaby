@@ -1,29 +1,30 @@
+<div class='wrapper'>
+  <h3><%= @game.event_date %></h3>
+  <h2><%= @game.honoree_name %></h2>
 
-<h3><%= @game.event_date %></h3>
-<h2><%= @game.honoree_name %></h2>
-
-<% if @game.require_password %>
-  <p>
-    <em> Answers will be password protected </em>
-  </p>
-<% end %>
-
-<ul>
-  <li><%= link_to 'Play', play_game_path(@game) %></li>
-  <li><%= link_to 'Edit', edit_game_path(@game) %></li>
-</ul>
-
-<h4>Player overview</h4>
-
-<ol>
-  <% @players.each do |player| %>
-    <li>
-      <%= link_to player.name, edit_player_path(player) %> |
-      <%= player.email %> |
-      <%= player.aws_s3_bucket %> |
-      <%= player.aws_s3_key %>
-    </li>
+  <% if @game.require_password %>
+    <p>
+      <em> Answers will be password protected </em>
+    </p>
   <% end %>
-</ol>
+
+  <ul>
+    <li><%= link_to 'Play', play_game_path(@game) %></li>
+    <li><%= link_to 'Edit', edit_game_path(@game) %></li>
+  </ul>
+
+  <h4>Player overview</h4>
+
+  <ol>
+    <% @players.each do |player| %>
+      <li>
+        <%= link_to player.name, edit_player_path(player) %> |
+        <%= player.email %> |
+        <%= player.aws_s3_bucket %> |
+        <%= player.aws_s3_key %>
+      </li>
+    <% end %>
+  </ol>
+</div>
 
 
