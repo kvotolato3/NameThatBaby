@@ -1,19 +1,21 @@
-<%= form_for @game do |f| %>
-  <div>
-    <%= f.label :honoree_name %>
-    <%= f.text_field :honoree_name %>
-  </div>
-  <div>
-    <%= f.label :event_date %>
-    <%= f.date_field :event_date %>
-  </div>
-  <div>
-    <%= f.label :require_password %>
-    <%= f.check_box :require_password %>
-  </div>
-  <div>
-    <%= f.label :password %>
-    <%= f.text_field :password %>
-  </div>
-  <%= f.submit %>
-<% end %>
+<div class='wrapper'>
+  <%= form_for @game do |f| %>
+    <div>
+      <%= f.label :honoree_name %>
+      <%= f.text_field :honoree_name %>
+    </div>
+    <div>
+      <%= f.label :event_date %>
+      <%= f.date_field :event_date %>
+    </div>
+    <div>
+      <%= f.label :require_password %>
+      <%= f.check_box :require_password %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.text_field :password %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>
