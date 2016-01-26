@@ -6,4 +6,6 @@ Rails.application.routes.draw do
       get :play
     end
   end
+
+  resources :players, only:[:show, :edit, :update]
 end

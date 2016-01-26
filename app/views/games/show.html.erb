@@ -18,7 +18,7 @@
 <ol>
   <% @players.each do |player| %>
     <li>
-      <%= player.name %> |
+      <%= link_to player.name, edit_player_path(player) %> |
       <%= player.email %> |
       <%= player.aws_s3_bucket %> |
       <%= player.aws_s3_key %>
