@@ -4,6 +4,10 @@ class GamesController < ApplicationController
   def landing_page
   end
 
+  def my_games
+
+  end
+
   def show
     @players = @game.players
   end
