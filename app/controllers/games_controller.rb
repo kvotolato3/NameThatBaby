@@ -1,6 +1,9 @@
 class GamesController < ApplicationController
  before_action :set_game, only: [:show, :play, :edit, :update]
 
+  def landing_page
+  end
+
   def show
     @players = @game.players
   end

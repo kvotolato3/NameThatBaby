@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'players#index'
+  root 'games#landing_page'
   #other resources remaining :index, :create, :destroy, :new
   resources :games, only:[:show, :edit, :update] do
     member do
