@@ -1,4 +1,14 @@
 <div class='wrapper'>
-<h2>Games I Host</h2>
-<h2>Games I'm Playing</h2>
+  <h2>Games I Host</h2>
+    <ul>
+      <% @my_hosted_games.each do |game| %>
+        <li><%= game.event_date %> | <%= game.honoree_name %> | <%= game.require_password %></li>
+      <% end %>
+    </ul>
+  <h2>Games I'm Playing</h2>
+    <ul>
+      <% @my_played_games.each do |game| %>
+        <li><%= game.event_date %> | <%= game.honoree_name %> | <%= game.require_password %></li>
+      <% end %>
+    </ul>
 </div>

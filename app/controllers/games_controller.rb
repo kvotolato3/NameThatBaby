@@ -5,7 +5,8 @@ class GamesController < ApplicationController
   end
 
   def my_games
-
+    @my_hosted_games = Game.where(id: Player.where(email: params[:user][:email], is_host: true).pluck(:game_id))
+    @my_played_games = Game.where(id: Player.where(email: params[:user][:email], is_host: false).pluck(:game_id))
   end
 
   def show
