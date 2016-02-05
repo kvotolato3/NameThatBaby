@@ -12,8 +12,13 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<%= yield %>
+  <%= yield %>
 
+  <div>
+    <% if Rails.env.development? %>
+      <%= params.inspect %>
+    <% end %>
+  </div>
 </body>
 
 <footer>
