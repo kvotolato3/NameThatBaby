@@ -1,4 +1,5 @@
 <div class='wrapper'>
+  <p><%= link_to 'back to My Games', my_games_games_path(:user => {:email => @my_email}) %></p>
   <h3><%= @game.event_date %></h3>
   <h2><%= @game.honoree_name %></h2>
 

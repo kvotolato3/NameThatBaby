@@ -4,7 +4,7 @@
     <ul>
       <% @my_hosted_games.each do |game| %>
         <li>
-          <%= link_to(game) do %>
+          <%= link_to(game_path(game, :user => {:email => @my_email})) do %>
             <%= game.event_date %> | <%= game.honoree_name %> | password protected: <%= game.require_password %>
           <% end %>
         </li>
@@ -14,7 +14,7 @@
     <ul>
       <% @my_played_games.each do |game| %>
         <li>
-          <%= link_to(game) do %>
+          <%= link_to(game_path(game, :user => {:email => @my_email})) do %>
             <%= game.event_date %> | <%= game.honoree_name %> | password protected: <%= game.require_password %>
           <% end %>
         </li>

@@ -2,14 +2,19 @@ class GamesController < ApplicationController
  before_action :set_game, only: [:show, :play, :edit, :update]
 
   def landing_page
+    if user_signed_in?
+      redirect_to my_games_games_path
+    end
   end
 
   def my_games
-    @my_hosted_games = Game.where(id: Player.where(email: params[:user][:email], is_host: true).pluck(:game_id))
-    @my_played_games = Game.where(id: Player.where(email: params[:user][:email], is_host: false).pluck(:game_id))
+    @my_email = current_user.email
+    @my_hosted_games = Game.where(id: Player.where(email: @my_email, is_host: true).pluck(:game_id))
+    @my_played_games = Game.where(id: Player.where(email: @my_email, is_host: false).pluck(:game_id))
   end
 
   def show
+    @my_email = current_user.email
     @players = @game.players
   end
 
