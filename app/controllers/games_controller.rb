@@ -19,6 +19,9 @@ class GamesController < ApplicationController
   end
 
   def play
+    game = Game.find(params[:id])
+    @event_date = game.event_date.to_formatted_s(:long_ordinal)
+    @honoree_name = game.honoree_name
     @players = @game.players
   end
 
