@@ -11,19 +11,19 @@ date3 = DateTime.new(2016, 02, 21)
 game3 = Game.create(honoree_name: honoree_name3, event_date: date3, require_password: true, password: 'hello')
 
 # Create hosts
-kathleen = User.create(email: 'kathleen.csizmadia@gmail.com', password: '12345678')
+kathleen = User.create(email: 'kathleen.csizmadia@gmail.com', password: '12345678', name: 'Kathleen Csizmadia')
 Player.create([{name: 'Kathleen Csizmadia', aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: 'kathleen.csizmadia@gmail.com', game: game1, is_host: true, user: kathleen}])
 
 first_name2 = Faker::Name.first_name
 last_name2 = Faker::Name.last_name
 email2 = first_name2 + '@example.com'
-host2 = User.create(email: email2, password: '12345678')
+host2 = User.create(email: email2, password: '12345678', name: first_name2 + ' ' + last_name2)
 Player.create([{name: first_name2 + ' ' + last_name2, aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: email2, game: game2, is_host: true, user: host2}])
 
 first_name3 = Faker::Name.first_name
 last_name3 = Faker::Name.last_name
 email3 = first_name3 + '@example.com'
-host3 = User.create(email: email3, password: '12345678')
+host3 = User.create(email: email3, password: '12345678', name: first_name3 + ' ' + last_name3)
 Player.create([{name: first_name3 + ' ' + last_name3, aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: email3, game: game3, is_host: true, user: host3}])
 
 # Create players for game 1
