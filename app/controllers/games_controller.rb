@@ -16,6 +16,7 @@ class GamesController < ApplicationController
   def show
     @my_email = current_user.email
     @players = @game.players
+    @hosts = @players.where(is_host: true)
   end
 
   def play
