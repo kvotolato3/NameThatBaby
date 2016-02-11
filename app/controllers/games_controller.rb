@@ -37,6 +37,25 @@ class GamesController < ApplicationController
     end
   end
 
+  def new
+    @game = Game.new
+  end
+
+  def create
+    @game = Game.new(game_params)
+
+    if @game.save
+      @host = Player.new(name: current_user.name, email: current_user.email, is_host: true, user: current_user, game: @game)
+        if @host.save
+          redirect_to @game, notice: 'Game was successfully created.'
+        else
+          render :new
+        end
+    else
+      render :new
+    end
+  end
+
 
 private
   def set_game

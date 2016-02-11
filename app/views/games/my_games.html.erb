@@ -5,7 +5,7 @@
       <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
     <% end %>
   </div>
-  <h1>My Games</h1>
+  <h1>My Games</h1><%= link_to 'New Game', new_game_path %>
   <h2>Games I'm Hosting</h2>
     <ul>
       <% @my_hosted_games.each do |game| %>
