@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'games#landing_page'
 
   #other resources remaining :index, :create, :destroy, :new
-  resources :games, only:[:show, :edit, :update] do
+  resources :games, only:[:show, :edit, :update, :new, :create] do
     member do
       get :play
     end
@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resources :players, only:[:show, :edit, :update]
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
 end
