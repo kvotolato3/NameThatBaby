@@ -3,7 +3,7 @@ class GamesController < ApplicationController
 
   def landing_page
     if user_signed_in?
-      redirect_to my_games_games_path
+      redirect_to my_games_path
     end
   end
 
@@ -58,7 +58,7 @@ class GamesController < ApplicationController
 
   def destroy
     @game.destroy
-    redirect_to my_games_games_path
+    redirect_to my_games_path
   end
 
 

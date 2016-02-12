@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get :play
     end
 
-    get 'my_games', on: :collection
+    get 'my_games', on: :collection, :as => 'my'
   end
 
   resources :players, only:[:show, :edit, :update]

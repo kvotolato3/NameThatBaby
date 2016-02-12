@@ -6,7 +6,7 @@
         <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
       <% end %>
     </div>
-  <p><%= link_to 'back to My Games', my_games_games_path(:user => {:email => @my_email}) %></p>
+  <p><%= link_to 'back to My Games', my_games_path %></p>
   <h3>Shower date: <%= @game.event_date.to_formatted_s(:long) %></h3>
   <h2>In honor of <%= @game.honoree_name %></h2>
   <h3>Hosted by:
