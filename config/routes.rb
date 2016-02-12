@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'games#landing_page'
 
-  #other resources remaining :index, :create, :destroy, :new
-  resources :games, only:[:show, :edit, :update, :new, :create] do
+  #other resources remaining :index, :destroy,
+  resources :games, only:[:show, :edit, :update, :new, :create, :destroy] do
     member do
       get :play
     end

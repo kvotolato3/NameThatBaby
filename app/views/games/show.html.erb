@@ -24,6 +24,7 @@
   <ul>
     <li><%= link_to 'Play', play_game_path(@game) %></li>
     <li><%= link_to 'Edit', edit_game_path(@game) %></li>
+    <li><%= link_to 'Delete', game_path(@game), method: :delete, data: {confirm: 'Are you sure?'} %></li>
   </ul>
 
   <h4>Player overview</h4>

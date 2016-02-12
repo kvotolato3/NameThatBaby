@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
- before_action :set_game, only: [:show, :play, :edit, :update]
+ before_action :set_game, only: [:show, :play, :edit, :update, :destroy]
 
   def landing_page
     if user_signed_in?
@@ -54,6 +54,11 @@ class GamesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @game.destroy
+    redirect_to my_games_games_path
   end
 
 
