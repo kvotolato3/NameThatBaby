@@ -35,6 +35,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 gem 'transloadit-rails'
