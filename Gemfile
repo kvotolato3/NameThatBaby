@@ -37,6 +37,8 @@ group :development, :test do
   gem 'faker'
 end
 
+gem 'transloadit-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
