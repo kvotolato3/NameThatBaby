@@ -9,10 +9,11 @@
       <%= f.text_field :email %>
     </div>
     <div class='flip'>
-      <% if @player.aws_s3_bucket != nil %>
-        <%= image_tag("https://s3.amazonaws.com/#{@player[:aws_s3_bucket]}/#{@player[:aws_s3_key]}") %>
+      <% if @current_upload != nil %>
+        <%= image_tag("https://s3.amazonaws.com/#{@current_upload[:aws_s3_bucket]}/#{@current_upload[:aws_s3_key]}") %>
       <% else %>
         <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
+        <%= link_to 'New photo', new_player_upload_path(@player) %>
       <% end %>
     </div>
     <%= f.submit %>

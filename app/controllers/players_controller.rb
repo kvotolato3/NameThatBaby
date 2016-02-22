@@ -5,7 +5,11 @@ before_action :set_player, only: [:edit, :update]
   end
 
   def edit
-
+    if @player.current_upload_id == nil
+      @current_upload = nil
+    else
+      @current_upload = Upload.find(@player.current_upload_id)
+    end
   end
 
   def update
