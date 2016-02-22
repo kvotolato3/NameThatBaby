@@ -11,9 +11,7 @@ class UploadsController < ApplicationController
     aws_s3_key = 'photos/' + transloadit_response[:assembly_id].to_s + '/' + transloadit_response[:results][:resize].first[:name]
     upload = Upload.new(player_id: player_id, aws_s3_bucket: aws_s3_bucket, aws_s3_key: aws_s3_key, transloadit_response: transloadit_response)
     if upload.save
-      player = Player.find(player_id)
-      player.update(current_upload_id: upload.id)
-      redirect_to edit_player_path(player), notice: 'Photo successfully uploaded.'
+      redirect_to edit_player_path(Player.find(player_id)), notice: 'Photo successfully uploaded.'
     else
       render :new
     end
