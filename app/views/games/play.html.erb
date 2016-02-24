@@ -13,22 +13,26 @@ var password = '<%= @game.password %>';
 </div>
 
 <div id='players_wrapper'>
-  <% @players.each do |player| %>
-    <div class='question'>
-      <div class='img-wrapper'>
-        <div class='flip'>
-          <div class='card'>
-            <div class='face front'>
-              <div class='number'><span><%= @players.index(player)+1 %></span></div>
-              <%= image_tag("https://s3.amazonaws.com/#{player[:aws_s3_bucket]}/#{player[:aws_s3_key]}") %>
-            </div>
-            <div class='face back'>
-              <%= player[:player].name %>
+  <% if @players == [] %>
+    <p>There are no photos to display</p>
+  <% else %>
+    <% @players.each do |player| %>
+      <div class='question'>
+        <div class='img-wrapper'>
+          <div class='flip'>
+            <div class='card'>
+              <div class='face front'>
+                <div class='number'><span><%= @players.index(player)+1 %></span></div>
+                <%= image_tag("https://s3.amazonaws.com/#{player[:aws_s3_bucket]}/#{player[:aws_s3_key]}") %>
+              </div>
+              <div class='face back'>
+                <%= player[:player].name %>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
   <br class='clear'/>
 </div>

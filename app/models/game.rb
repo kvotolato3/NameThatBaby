@@ -7,15 +7,11 @@ class Game < ActiveRecord::Base
     players_array = []
     self.players.each do |player|
       current_upload = player.uploads.last
-
       if current_upload != nil
         aws_s3_bucket = current_upload.aws_s3_bucket
         aws_s3_key = current_upload.aws_s3_key
-      else
-        aws_s3_bucket = nil
-        aws_s3_key = nil
+        players_array.push({:player => player, :aws_s3_bucket => aws_s3_bucket, :aws_s3_key => aws_s3_key})
       end
-      players_array.push({:player => player, :aws_s3_bucket => aws_s3_bucket, :aws_s3_key => aws_s3_key})
     end
     return players_array
   end
