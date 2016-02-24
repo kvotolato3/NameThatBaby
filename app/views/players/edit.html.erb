@@ -8,15 +8,26 @@
       <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
-    <div class='flip'>
-      <% if @current_upload != nil %>
+
+    <% if @current_upload != nil %>
+      <div class='flip'>
         <%= image_tag("https://s3.amazonaws.com/#{@current_upload[:aws_s3_bucket]}/#{@current_upload[:aws_s3_key]}") %>
-      <% else %>
+      </div>
+      <div>
+        <%= link_to 'Change photo', new_player_upload_path(@player) %>
+      </div>
+    <% else %>
+      <div class='flip'>
         <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
+      </div>
+      <div>
         <%= link_to 'New photo', new_player_upload_path(@player) %>
-      <% end %>
+      </div>
+    <% end %>
     </div>
     <%= f.submit %>
   <% end %>
+  <div>
   <%= link_to 'Delete Player', player_path(@player), method: :delete, data: {confirm: 'Are you sure you wish to delete this player?'} %>
+  </div>
 </div>
