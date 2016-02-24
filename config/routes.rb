@@ -8,10 +8,12 @@ Rails.application.routes.draw do
     end
 
     get 'my_games', on: :collection, :as => 'my'
+
+    resources :players, only:[:new, :create]
   end
 
   resources :players, only:[:show, :edit, :update] do
-    resources :uploads, only:[:new, :create, :edit, :update]
+    resources :uploads, only:[:new, :create]
   end
 
   devise_for :users, :controllers => {:registrations => "registrations"}
