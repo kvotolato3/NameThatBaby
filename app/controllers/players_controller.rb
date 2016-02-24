@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-before_action :set_player, only: [:edit, :update]
+before_action :set_player, only: [:edit, :update, :destroy]
 before_action :set_game, only: [:new, :create]
 
   def index
@@ -19,7 +19,6 @@ before_action :set_game, only: [:new, :create]
     else
       render :new
     end
-
   end
 
   def edit
@@ -31,6 +30,15 @@ before_action :set_game, only: [:new, :create]
 
     if @player.update(player_params)
       redirect_to @game, notice: 'Player was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    game = Game.find(@player.game_id)
+    if @player.destroy
+      redirect_to game, notice: 'Player was successfully deleted.'
     else
       render :edit
     end
