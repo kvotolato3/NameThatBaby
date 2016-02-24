@@ -12,27 +12,30 @@ game3 = Game.create(honoree_name: honoree_name3, event_date: date3, require_pass
 
 # Create hosts
 kathleen = User.create(email: 'kathleen.csizmadia@gmail.com', password: '12345678', name: 'Kathleen Csizmadia')
-Player.create([{name: 'Kathleen Csizmadia', aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: 'kathleen.csizmadia@gmail.com', game: game1, is_host: true, user: kathleen}])
+p_kathleen = Player.create(name: 'Kathleen Csizmadia', email: 'kathleen.csizmadia@gmail.com', game: game1, is_host: true, user: kathleen)
+Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', player: p_kathleen}])
 
 first_name2 = Faker::Name.first_name
 last_name2 = Faker::Name.last_name
 email2 = first_name2 + '@example.com'
 host2 = User.create(email: email2, password: '12345678', name: first_name2 + ' ' + last_name2)
-Player.create([{name: first_name2 + ' ' + last_name2, aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: email2, game: game2, is_host: true, user: host2}])
+p_2 = Player.create(name: first_name2 + ' ' + last_name2, email: email2, game: game2, is_host: true, user: host2)
+Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', player: p_2}])
 
 first_name3 = Faker::Name.first_name
 last_name3 = Faker::Name.last_name
 email3 = first_name3 + '@example.com'
 host3 = User.create(email: email3, password: '12345678', name: first_name3 + ' ' + last_name3)
-Player.create([{name: first_name3 + ' ' + last_name3, aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: email3, game: game3, is_host: true, user: host3}])
+p_3 = Player.create(name: first_name3 + ' ' + last_name3, email: email3, game: game3, is_host: true, user: host3)
+Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', player: p_3}])
 
 # Create players for game 1
 15.times do |i|
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       email = first_name + '@example.com'
-
-      Player.create([{name: first_name + ' ' + last_name, aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Leona+Worsley.jpg', email: email, game: game1}])
+      player = Player.create(name: first_name + ' ' + last_name, email: email, game: game1)
+      Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Leona+Worsley.jpg', player: player}])
 end
 
 # Create players for game 2
@@ -40,7 +43,8 @@ end
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       email = first_name + '@example.com'
-      Player.create([{name: first_name + ' ' + last_name, aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Leona+Worsley.jpg', email: email, game: game2}])
+      player = Player.create(name: first_name + ' ' + last_name, email: email, game: game2)
+      Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Leona+Worsley.jpg', player: player}])
 end
 
 # Create players for game 3
@@ -48,12 +52,16 @@ end
       first_name = Faker::Name.first_name
       last_name = Faker::Name.last_name
       email = first_name + '@example.com'
-      Player.create([{name: first_name + ' ' + last_name, aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Leona+Worsley.jpg', email: email, game: game3}])
+      player = Player.create(name: first_name + ' ' + last_name, email: email, game: game3)
+      Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Leona+Worsley.jpg', player: player}])
 end
 
 # Host from game 1 will be a player on games 2 and 3
-Player.create([{name: 'Kathleen Csizmadia', aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: 'kathleen.csizmadia@gmail.com', game: game2, user: kathleen}])
-Player.create([{name: 'Kathleen Csizmadia', aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', email: 'kathleen.csizmadia@gmail.com', game: game3, user: kathleen}])
+player = Player.create(name: 'Kathleen Csizmadia', email: 'kathleen.csizmadia@gmail.com', game: game2, user: kathleen)
+Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', player: player}])
+
+player = Player.create(name: 'Kathleen Csizmadia', email: 'kathleen.csizmadia@gmail.com', game: game3, user: kathleen)
+Upload.create([{aws_s3_bucket: 'kathleen-namethatbaby', aws_s3_key: 'photos/Kathleen+Votolato.jpg', player: player}])
 
 
 #Original game players
