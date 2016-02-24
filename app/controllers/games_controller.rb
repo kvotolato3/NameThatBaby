@@ -23,7 +23,7 @@ class GamesController < ApplicationController
     game = Game.find(params[:id])
     @event_date = game.event_date.to_formatted_s(:long_ordinal)
     @honoree_name = game.honoree_name
-    @players = @game.players
+    @players = @game.players_array
   end
 
   def edit
