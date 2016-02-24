@@ -28,6 +28,7 @@
   </ul>
 
   <h4>Player overview</h4>
+  <p><%= link_to 'Add player', new_game_player_path(@game) %></p>
 
   <ol>
     <% @players.each do |player| %>
