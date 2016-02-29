@@ -23,6 +23,7 @@ before_action :set_game, only: [:new, :create]
 
   def edit
     @current_upload = @player.uploads.last
+    @game = Game.find(@player.game_id)
   end
 
   def update
