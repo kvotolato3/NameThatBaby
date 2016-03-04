@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BabyShower2015</title>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link href='//fonts.googleapis.com/css?family=Indie+Flower|Raleway:400' rel='stylesheet' type='text/css'>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <head>
+    <title>Name That Baby</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='//fonts.googleapis.com/css?family=Indie+Flower|Raleway:400' rel='stylesheet' type='text/css'>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <p class='notice'><%= notice %></p>
+    <p class='alert'><%= alert %></p>
 
-  <%= yield %>
+    <%= yield %>
 
-  <div>
-    <% if Rails.env.development? %>
-      <%= params.inspect %>
-    <% end %>
-  </div>
-</body>
 
-<footer>
-  <p><i class="fa fa-copyright"></i> 2015 Kathleen Votolato.</p>
-</footer>
+    <footer class='footer'>
+    <div class='params_in_dev'>
+      <% if Rails.env.development? %>
+        <%= params.inspect %>
+      <% end %>
+    </div>
+      <div class='container'>
+          <p class='signature'><i class='fa fa-copyright'></i> 2016 Kathleen Csizmadia.</p>
+      </div>
+    </footer>
+  </body>
 </html>
