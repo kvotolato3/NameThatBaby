@@ -13,6 +13,23 @@ header {
  background-image: image-url('https://s3.amazonaws.com/kathleen-namethatbaby/img/paisley.png');
 }
 
+#nav {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #263D42;
+  color: #CCDBDC;
+  height: 4rem;
+  }
+
+#nav-links {
+  position: absolute;
+  right: 4%;
+  width: 100%;
+  top: 40%;
+  text-align: right;
+  }
+
 header h1 {
   padding: 2rem;
   color: rgb(145,51,79);
@@ -83,24 +100,27 @@ img {
 footer {
   padding: 1rem;
   font-family: sans-serif;
-  color: #a593e0;
+  color: #CCDBDC;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 80px; /* Fixed height of the footer*/
-  background-color: #566270;
+  background-color: #263D42;
 }
 
-p.signature {
+#signature {
+  position:absolute;
+  top: 40%;
+  width: 100%;
+  margin: 0, auto;
   text-align: center;
-  font-family: sans-serif;
   font-family: 'Indie Flower', sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .params_in_dev {
-  position: absolute;
-  color: white;
+  position: relative;
+  color: #CCDBDC;
   }
 
 .form-container {

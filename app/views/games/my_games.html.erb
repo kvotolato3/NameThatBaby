@@ -1,10 +1,4 @@
 <div class='wrapper'>
-  <div class='navbar'>
-    <% if user_signed_in? %>
-      <%= link_to 'Edit profile', edit_user_registration_path %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-    <% end %>
-  </div>
   <h1>My Games</h1><%= link_to 'New Game', new_game_path %>
   <h2>Games I'm Hosting</h2>
     <ul>

@@ -13,11 +13,19 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <nav id='nav'>
+      <p id='nav-links'>
+        <% if user_signed_in? %>
+          <%= current_user.email %> |
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        <% end %>
+      </p>
+    </nav>
     <p class='notice'><%= notice %></p>
     <p class='alert'><%= alert %></p>
 
     <%= yield %>
-
 
     <footer class='footer'>
     <div class='params_in_dev'>
@@ -25,9 +33,9 @@
         <%= params.inspect %>
       <% end %>
     </div>
-      <div class='container'>
-          <p class='signature'><i class='fa fa-copyright'></i> 2016 Kathleen Csizmadia.</p>
-      </div>
+      <p id='signature'>
+          <i class='fa fa-copyright'></i> 2016 Kathleen Csizmadia.
+      </p>
     </footer>
   </body>
 </html>
