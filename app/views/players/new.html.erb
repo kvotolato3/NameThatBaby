@@ -1,5 +1,5 @@
 <div class='wrapper'>
-  <%= link_to 'back', game_path(@game)%>
+  <%= link_to 'Back', game_path(@game)%>
   <%= form_for @player, url: game_players_path(@game) do |f| %>
     <div>
       <%= f.label :name %>

@@ -14,7 +14,7 @@ header {
 }
 
 #nav {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 100%;
   background-color: #263D42;
@@ -23,12 +23,18 @@ header {
   }
 
 #nav-links {
-  position: absolute;
+  position: relative;
   right: 4%;
   width: 100%;
   top: 40%;
   text-align: right;
   }
+
+.notice, .alert {
+  position: relative;
+  text-align: center;
+  color: #63C7B2;
+}
 
 header h1 {
   padding: 2rem;
