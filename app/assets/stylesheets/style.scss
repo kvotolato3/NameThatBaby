@@ -1,10 +1,14 @@
-html {
-  position: relative;
-  min-height: 100%;
+html, body {
+  height: 100%;
 }
 
-body {
-  padding-bottom: 80px; /* Margin bottom by footer height */
+.container {
+  min-height: 100%;
+  position:relative;
+}
+
+.content {
+  padding-bottom: 3rem;
 }
 
 header {
@@ -14,7 +18,6 @@ header {
 }
 
 #nav {
-  position: relative;
   top: 0;
   width: 100%;
   background-color: #263D42;
@@ -23,15 +26,13 @@ header {
   }
 
 #nav-links {
-  position: relative;
-  right: 4%;
+  right: 1.5%;
   width: 100%;
-  top: 40%;
+  top: 15%;
   text-align: right;
   }
 
 .notice, .alert {
-  position: relative;
   text-align: center;
   color: #63C7B2;
 }
@@ -104,28 +105,26 @@ img {
 }
 
 footer {
-  padding: 1rem;
-  font-family: sans-serif;
-  color: #CCDBDC;
+  background-color: #263D42;
+  width: 100%;
+  height: 3rem;
   position: absolute;
   bottom: 0;
-  width: 100%;
-  height: 80px; /* Fixed height of the footer*/
-  background-color: #263D42;
+  left: 0;
+  color: #CCDBDC;
+
+
 }
 
 #signature {
-  position:absolute;
-  top: 40%;
+  top: 25%;
   width: 100%;
-  margin: 0, auto;
   text-align: center;
   font-family: 'Indie Flower', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .params_in_dev {
-  position: relative;
   color: #CCDBDC;
   }
 
