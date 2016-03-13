@@ -8,7 +8,9 @@ html, body {
 }
 
 .content {
-  padding-bottom: 3rem;
+  margin: 0 auto;
+  width: 320px;
+  padding-bottom: 5em;
 }
 
 header {
@@ -17,7 +19,7 @@ header {
  background-image: image-url('https://s3.amazonaws.com/kathleen-namethatbaby/img/paisley.png');
 }
 
-#nav {
+nav {
   top: 0;
   width: 100%;
   background-color: #263D42;
@@ -25,22 +27,151 @@ header {
   height: 4rem;
   }
 
-#nav-links {
-  right: 1.5%;
-  width: 100%;
-  top: 15%;
+.nav-links {
   text-align: right;
+  padding-right: 1.5%;
+  padding-top: 2em;
+  font-size: 1em;
   }
+
+.nav-links > a {
+  color: #8E6C88;
+}
+
+.nav-links > a:hover {
+  color: #63C7B2;
+}
 
 .notice, .alert {
   text-align: center;
   color: #63C7B2;
+  padding: 0.3em;
+  font-size: 1em;
+}
+
+.back-button {
+  padding-left: 2%;
+}
+
+.game-heading {
+  position: relative;
+  text-align: center;
+  border: solid #CCDBDC;
+  padding: 2px;
+  margin-top: 1%;
+  border-radius: 1em;
+}
+
+.game-edit-link-wrapper {
+  display: table;
+  position: absolute;
+  right: 1%;
+  top: 1%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #CCDBDC;
+
+}
+
+.game-edit-link-wrapper:hover {
+  background-color: #263D42;
+}
+
+.game-edit-link {
+  display: table-cell;
+  color: #263D42;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.game-edit-link:hover {
+  color: #8E6C88;
+}
+
+.play-button {
+  margin: .83em auto;
+  width: 75px;
+  height: 75px;
+  background-color: #63C7B2;
+  border-radius: 50%;
+  display: table;
+}
+
+.play-button:hover {
+  background-color: #263D42;
+}
+
+.play-button:active {
+  background-color: #263D42;
+}
+
+.play-link {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+}
+
+.play-link:hover {
+  color: #8E6C88;
+}
+
+.play-link:active {
+  color: #63C7B2;
+}
+
+#players-heading-wrapper {
+  display: table;
+  width: 200px;
+  height: 30px;
+  margin: .83em auto;
+  position: relative;
+}
+
+#players-heading {
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.add-player-button-wrapper {
+  position: absolute;
+  right: 0;
+}
+
+.add-player-button {
+  width: 30px;
+  height: 16px;
+  color: #263D42;
+  background-color: #CCDBDC;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 7px 0;
+  border-radius: 2em;
+}
+
+.add-player-button:hover {
+  background-color: #263D42;
+  color: #8E6C88;
+}
+
+.player-details {
+  text-align: center;
+  padding: 1% 0 5% 0;
+}
+
+.player-photo {
+  width: 200px;
+  height: 220px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 header h1 {
   padding: 2rem;
   color: rgb(145,51,79);
-  font-family: 'Indie Flower', sans-serif;
   font-size: 3rem;
   text-align: center;
   margin: 0;
@@ -53,10 +184,6 @@ header h3 {
   text-align: center;
   margin: 0 auto;
   font-family: 'Raleway', sans-serif;
-}
-
-.wrapper {
-  padding: 1rem
 }
 
 .navbar {
@@ -107,25 +234,27 @@ img {
 footer {
   background-color: #263D42;
   width: 100%;
-  height: 3rem;
+  height: 5em;
   position: absolute;
   bottom: 0;
   left: 0;
   color: #CCDBDC;
-
-
 }
 
-#signature {
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  font-family: 'Indie Flower', sans-serif;
-  font-size: 1rem;
+.signature-container {
+  display:table;
+  height:100%;
+  width:100%;
+  }
+
+.signature {
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
 }
 
 .params_in_dev {
-  color: #CCDBDC;
+  color: #263D42;
   }
 
 .form-container {
@@ -148,22 +277,6 @@ i.fa-key, i.fa-unlock {
 #pw {
   width: 5rem;
   height: 1rem;
-}
-
-::-webkit-input-placeholder {
-  font-family: 'Indie Flower', sans-serif;
-}
-
-:-moz-placeholder {
-  font-family: 'Indie Flower', sans-serif;
-}
-
-::-moz-placeholder {
-  font-family: 'Indie Flower', sans-serif;
-}
-
-:-ms-input-placeholder {
-  font-family: 'Indie Flower', sans-serif;
 }
 
 /***************
@@ -204,7 +317,6 @@ FLIP
   -webkit-transform: rotatex(-180deg);
   text-align: center;
   line-height: 200px;
-  font-family: 'Indie Flower', sans-serif;
   font-size: 1.5rem;
   background: rgb(143,201,185);
   color: rgb(255,255,255);

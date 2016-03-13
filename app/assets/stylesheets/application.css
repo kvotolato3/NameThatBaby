@@ -13,4 +13,5 @@
  *= require normalize
  *= require default
  *= require style
+ *= require responsive
  */

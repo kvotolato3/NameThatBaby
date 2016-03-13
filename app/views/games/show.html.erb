@@ -1,36 +1,53 @@
-<div class='wrapper'>
-  <p><%= link_to 'Back', my_games_path %></p>
-  <h3>Shower date: <%= @game.event_date.to_formatted_s(:long) %></h3>
-  <h2>In honor of <%= @game.honoree_name %></h2>
-  <h3>Hosted by:
-    <% @hosts.each do |host| %>
-    <%= host.name %>
+<%= link_to 'Back', my_games_path, class: 'back-button' %>
+
+<div class='game-heading'>
+  <div class='game-edit-link-wrapper'>
+    <%= link_to(edit_game_path(@game), class: 'game-edit-link') do %>
+      <i class="fa fa-pencil"></i>
     <% end %>
-  </h3>
+  </div>
+
+  <h3>Shower date</h3>
+  <h2><%= @game.event_date.to_formatted_s(:long) %></h2>
+  <h3>In honor of</h2>
+  <h2><%= @game.honoree_name %></h2>
+  <h3>Hosted by</h3>
+
+  <% @hosts.each do |host| %>
+    <h3><%= host.name %></h3>
+  <% end %>
 
   <% if @game.require_password %>
     <p>
       <em> Answers will be password protected </em>
     </p>
   <% end %>
-
-  <ul>
-    <li><%= link_to 'Play', play_game_path(@game) %></li>
-    <li><%= link_to 'Edit', edit_game_path(@game) %></li>
-    <li><%= link_to 'Delete', game_path(@game), method: :delete, data: {confirm: 'Are you sure?'} %></li>
-  </ul>
-
-  <h4>Player overview</h4>
-  <p><%= link_to 'Add player', new_game_player_path(@game) %></p>
-
-  <ol>
-    <% @players.each do |player| %>
-      <li>
-        <%= link_to player.name, edit_player_path(player) %> |
-        <%= player.email %>
-      </li>
-    <% end %>
-  </ol>
+  <div class='play-button'>
+    <%= link_to 'Play', play_game_path(@game), class: 'play-link' %>
+  </div>
 </div>
+
+<div id='players-heading-wrapper'>
+  <h3 id='players-heading'>Players</h3>
+  <div class='add-player-button-wrapper'>
+    <%= link_to(new_game_player_path(@game), class: 'add-player-button') do %>
+      <i class="fa fa-plus"></i>
+    <% end %>
+  </div>
+</div>
+
+<% @players.each do |player| %>
+  <div class='player-photo'>
+    <% if player[:aws_s3_bucket] != nil %>
+      <%= image_tag("https://s3.amazonaws.com/#{player[:aws_s3_bucket]}/#{player[:aws_s3_key]}") %>
+    <% else %>
+      <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
+    <% end %>
+  </div>
+  <div class='player-details'>
+    <p><%= link_to player[:player].name, edit_player_path(player[:player]) %></p>
+    <p><%= player[:player].email %></p>
+  </div>
+<% end %>
 
 

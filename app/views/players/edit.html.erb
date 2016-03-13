@@ -1,5 +1,7 @@
 <div class='wrapper'>
-  <%= link_to 'Back', game_path(@game) %>
+  <div class='nav-links-inverted'>
+    <%= link_to 'Back', game_path(@game) %>
+  </div>
   <%= form_for @player do |f| %>
     <div>
       <%= f.label :name %>

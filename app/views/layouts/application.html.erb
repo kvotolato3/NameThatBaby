@@ -4,40 +4,44 @@
     <title>Name That Baby</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href='//fonts.googleapis.com/css?family=Indie+Flower|Raleway:400' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600|Raleway:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
     <div class='container'>
       <div class='header'>
-         <nav id='nav'>
-          <p id='nav-links'>
+         <nav>
+          <div class='nav-links'>
             <% if user_signed_in? %>
-              <%= current_user.email %> |
-              <%= link_to 'Edit profile', edit_user_registration_path %> |
+              <%= link_to(edit_user_registration_path) do %>
+                <%= current_user.email %>
+              <% end %>
+              <strong> | </strong>
               <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
             <% end %>
-          </p>
+          </div>
         </nav>
-        <p class='notice'><%= notice %></p>
-        <p class='alert'><%= alert %></p>
+        <div class='notice'><%= notice %></div>
+        <div class='alert'><%= alert %></div>
       </div>
       <div class='content'>
-        <%= yield %>
-      </div>
-      <footer class='footer'>
+          <%= yield %>
         <div class='params_in_dev'>
           <% if Rails.env.development? %>
             <%= params.inspect %>
           <% end %>
         </div>
-        <p id='signature'>
+      </div>
+      <footer class='footer'>
+        <div class='signature-container'>
+          <div class='signature'>
             <i class='fa fa-copyright'></i> 2016 Kathleen Csizmadia.
-        </p>
+          </div>
+        </div>
       </footer>
     </div>
   </body>

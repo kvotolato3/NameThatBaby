@@ -15,15 +15,15 @@ class GamesController < ApplicationController
 
   def show
     @my_email = current_user.email
-    @players = @game.players
-    @hosts = @players.where(is_host: true)
+    @players = @game.all_players_array
+    @hosts = @game.players.where(is_host: true)
   end
 
   def play
     game = Game.find(params[:id])
     @event_date = game.event_date.to_formatted_s(:long_ordinal)
     @honoree_name = game.honoree_name
-    @players = @game.players_array
+    @players = @game.players_with_photos_array
   end
 
   def edit

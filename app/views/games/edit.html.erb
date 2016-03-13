@@ -1,1 +1,2 @@
 <%= render 'form', {game: @game} %>
+<%= link_to 'Delete', game_path(@game), method: :delete, data: {confirm: 'Are you sure?'} %>
