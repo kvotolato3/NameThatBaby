@@ -77,7 +77,6 @@ form {
 }
 
 .form-field {
-  display: table;
   width: 100%;
   padding: 2% 0;
 }
@@ -86,15 +85,22 @@ form {
   padding-bottom: 4%;
 }
 
+.form-field em {
+  font-size: .75em;
+}
+
 label, input {
-  display: table-cell;
+  display: block;
   font-family: 'raleway';
+  margin-bottom: .25em;
 }
 
 input {
   width: 100%;
   box-sizing: border-box;
+  font-size: .83em;
 }
+
 
 /****Buttons*****/
 
