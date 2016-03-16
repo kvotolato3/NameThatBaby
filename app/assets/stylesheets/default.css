@@ -24,7 +24,7 @@ p {
 
 h4,
 blockquote, ul,
-fieldset, form,
+fieldset,
 ol, dl, dir,
 h5  {
   font-size: .83em;
@@ -46,11 +46,70 @@ em {
   font-style: italic;
 }
 
+.wrapper {
+  padding: 2%;
+}
+
+/****Links*****/
+
 a {
   text-decoration: none;
   color: #263D42;
+  font-size: .83em;
 }
 
 a:hover {
   color: #63C7B2;
+}
+
+.delete-link {
+  display: block;
+  width: 41px; /*width of the word 'delete'*/
+  margin: .5em auto;
+  font-size: .73em;
+  text-decoration: underline;
+}
+
+/****Forms*****/
+
+form {
+  font-size: .83em;
+}
+
+.form-field {
+  display: table;
+  width: 100%;
+  padding: 2% 0;
+}
+
+.form-field:last-of-type {
+  padding-bottom: 4%;
+}
+
+label, input {
+  display: table-cell;
+  font-family: 'raleway';
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/****Buttons*****/
+
+input[type='submit'] {
+  font-family: 'raleway';
+  border: none;
+  border-radius: 2em;
+  padding: 0.5em;
+  background-color: rgba(204, 219, 220, 0.5);
+}
+
+input[type='submit']:hover {
+  background-color: rgba(204, 219, 220, 1.0);
+}
+
+input[type='submit']:focus {
+  outline: 0;
 }

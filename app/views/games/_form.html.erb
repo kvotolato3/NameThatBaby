@@ -1,29 +1,28 @@
-<div class='wrapper'>
-  <% if game.errors.any? %>
-      <ul>
-        <% game.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-  <% end %>
+<% if game.errors.any? %>
+    <ul>
+      <% game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+<% end %>
 
-  <%= form_for game do |f| %>
-    <div>
+<%= form_for game, :html => {class: 'game-form'} do |f| %>
+    <div class='form-field'>
       <%= f.label :honoree_name %>
       <%= f.text_field :honoree_name %>
     </div>
-    <div>
+    <div class='form-field'>
       <%= f.label :event_date %>
       <%= f.date_field :event_date %>
     </div>
-    <div>
+    <div class='form-field'>
       <%= f.label :require_password %>
       <%= f.check_box :require_password %>
     </div>
-    <div>
+    <div class='form-field'>
       <%= f.label :password %>
       <%= f.text_field :password %>
     </div>
-    <%= f.submit %>
-  <% end %>
-</div>
+  <%= f.submit %>
+<% end %>
+
