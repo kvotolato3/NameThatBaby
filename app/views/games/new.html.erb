@@ -1,2 +1,6 @@
-<%= render 'form' , {game: @game}%>
+<div class='wrapper'>
+  <%= link_to 'Back', my_games_path%>
+  <h2>New game</h2>
+  <%= render 'form' , {game: @game}%>
+</div>
 
