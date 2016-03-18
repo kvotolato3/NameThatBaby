@@ -1,6 +1,18 @@
 <div class='wrapper'>
+  <div class='errors'>
+    <% if @player.errors.any? %>
+      <ul>
+        <% @player.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
   <%= link_to 'Back', game_path(@game)%>
+
   <h2>Edit Player</h2>
+
   <%= form_for @player do |f| %>
     <div class='form-field'>
       <%= f.label :name %>
