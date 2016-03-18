@@ -1,13 +1,12 @@
 <div class='wrapper'>
-  <div class='nav-links-inverted'>
-    <%= link_to 'Back', game_path(@game) %>
-  </div>
+  <%= link_to 'Back', game_path(@game)%>
+  <h2>Edit Player</h2>
   <%= form_for @player do |f| %>
-    <div>
+    <div class='form-field'>
       <%= f.label :name %>
       <%= f.text_field :name %>
     </div>
-    <div>
+    <div class='form-field'>
       <%= f.label :email %>
       <%= f.text_field :email %>
     </div>
@@ -27,10 +26,8 @@
         <%= link_to 'New photo', new_player_upload_path(@player) %>
       </div>
     <% end %>
-    </div>
     <%= f.submit %>
   <% end %>
-  <div>
+
   <%= link_to 'Delete Player', player_path(@player), method: :delete, data: {confirm: 'Are you sure you wish to delete this player?'} %>
-  </div>
 </div>
