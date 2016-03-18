@@ -55,6 +55,6 @@ private
   end
 
   def player_params
-    params.require(:player).permit(:id, :name, :aws_s3_bucket, :aws_s3_key, :game_id, :email)
+    params.require(:player).permit(:id, :name, :aws_s3_bucket, :aws_s3_key, :game_id, :email, :is_host)
   end
 end
