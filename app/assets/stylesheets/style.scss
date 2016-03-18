@@ -61,10 +61,20 @@ nav {
 .game-heading {
   position: relative;
   text-align: center;
-  border: solid #CCDBDC;
-  padding: 2px;
+  border: solid 2px #CCDBDC;
+  padding: 10px;
   margin-top: 1%;
-  border-radius: 1em;
+}
+
+.game-heading h3,
+.game-heading h2 {
+  margin: 0 0 0.5em 0;
+}
+
+.game-heading h4 {
+  margin-bottom: 0.25em;
+  margin-top: 0.75em;
+  font-weight: normal;
 }
 
 .game-edit-link-wrapper {

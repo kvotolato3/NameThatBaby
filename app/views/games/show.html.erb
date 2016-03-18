@@ -7,11 +7,11 @@
     <% end %>
   </div>
 
-  <h3>Shower date</h3>
+  <h4>Shower date</h4>
   <h2><%= @game.event_date.to_formatted_s(:long) %></h2>
-  <h3>In honor of</h2>
+  <h4>In honor of</h4>
   <h2><%= @game.honoree_name %></h2>
-  <h3>Hosted by</h3>
+  <h4>Hosted by</h4>
 
   <% @hosts.each do |host| %>
     <h3><%= host.name %></h3>
