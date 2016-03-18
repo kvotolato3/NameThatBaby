@@ -89,16 +89,26 @@ form {
   font-size: .75em;
 }
 
-label, input {
+label,
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='submit'],
+input[type='date']
+ {
   display: block;
   font-family: 'raleway';
   margin-bottom: .25em;
+  font-size: 1em;
+  width: 100%;
 }
 
 input {
-  width: 100%;
   box-sizing: border-box;
-  font-size: .83em;
+}
+
+.checkbox-label {
+  display: inline;
 }
 
 
