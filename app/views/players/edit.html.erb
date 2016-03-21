@@ -1,49 +1,48 @@
-<div class='wrapper'>
-  <div class='errors'>
-    <% if @player.errors.any? %>
-      <ul>
-        <% @player.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    <% end %>
+<div class='errors'>
+  <% if @player.errors.any? %>
+    <ul>
+      <% @player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<%= link_to 'Back', game_path(@game)%>
+
+<h2>Edit Player</h2>
+
+<%= form_for @player do |f| %>
+  <div class='form-field'>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class='form-field'>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class='form-field'>
+    <%= f.label :is_host, class: 'checkbox-label' %>
+    <%= f.check_box :is_host %>
   </div>
 
-  <%= link_to 'Back', game_path(@game)%>
-
-  <h2>Edit Player</h2>
-
-  <%= form_for @player do |f| %>
-    <div class='form-field'>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+  <% if @current_upload != nil %>
+    <div class='player-photo'>
+      <%= image_tag("https://s3.amazonaws.com/#{@current_upload[:aws_s3_bucket]}/#{@current_upload[:aws_s3_key]}") %>
     </div>
-    <div class='form-field'>
-      <%= f.label :email %>
-      <%= f.text_field :email %>
+    <div class='photo-link'>
+      <%= link_to 'Change photo', new_player_upload_path(@player) %>
     </div>
-    <div class='form-field'>
-      <%= f.label :is_host, class: 'checkbox-label' %>
-      <%= f.check_box :is_host %>
+  <% else %>
+    <div class='player-photo'>
+      <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
     </div>
-
-    <% if @current_upload != nil %>
-      <div class='player-photo'>
-        <%= image_tag("https://s3.amazonaws.com/#{@current_upload[:aws_s3_bucket]}/#{@current_upload[:aws_s3_key]}") %>
-      </div>
-      <div class='photo-link'>
-        <%= link_to 'Change photo', new_player_upload_path(@player) %>
-      </div>
-    <% else %>
-      <div class='player-photo'>
-        <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
-      </div>
-      <div class='photo-link'>
-        <%= link_to 'New photo', new_player_upload_path(@player) %>
-      </div>
-    <% end %>
-    <%= f.submit %>
+    <div class='photo-link'>
+      <%= link_to 'New photo', new_player_upload_path(@player) %>
+    </div>
   <% end %>
+  <%= f.submit %>
+<% end %>
 
-  <%= link_to 'Delete', player_path(@player), method: :delete, class: 'delete-link', data: {confirm: 'Are you sure you wish to delete this player?'} %>
-</div>
+<%= link_to 'Delete', player_path(@player), method: :delete, class: 'delete-link', data: {confirm: 'Are you sure you wish to delete this player?'} %>
+
