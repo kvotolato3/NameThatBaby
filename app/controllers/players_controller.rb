@@ -37,10 +37,15 @@ before_action :set_game, only: [:new, :create]
   end
 
   def destroy
-    game = Game.find(@player.game_id)
-    if @player.destroy
-      redirect_to game, notice: 'Player was successfully deleted.'
+    @game = Game.find(@player.game_id)
+    if @player.is_only_host == false
+      if @player.destroy
+        redirect_to @game, notice: 'Player was successfully deleted.'
+      else
+        render :edit
+      end
     else
+      flash.now[:notice] = 'Ooops! This player cannot be deleted because he/she is the only host.'
       render :edit
     end
   end
