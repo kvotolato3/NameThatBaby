@@ -8,7 +8,7 @@ class Player < ActiveRecord::Base
     message: "is invalid" }
 
   def is_only_host
-   # 1 - check if the player is a host
+   # 1. check if the player is a host
     if self.is_host == true
       # 2. check if there are multiple hosts on the game
       number_of_hosts = Game.find(self.game_id).players.where(is_host: true).count
