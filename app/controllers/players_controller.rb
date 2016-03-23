@@ -12,6 +12,7 @@ before_action :set_game, only: [:new, :create]
 
   def create
     @player = Player.new(player_params)
+    @player.email = @player.email.downcase
     @player.game_id = @game.id
 
     if @player.save
