@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160224003415) do
+ActiveRecord::Schema.define(version: 20160328212202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20160224003415) do
     t.string   "email",      limit: 255
     t.boolean  "is_host",                default: false
     t.integer  "user_id"
+    t.boolean  "is_creator"
+    t.string   "role"
   end
 
   create_table "uploads", force: :cascade do |t|
@@ -58,6 +60,8 @@ ActiveRecord::Schema.define(version: 20160224003415) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name",                   limit: 255
+    t.boolean  "is_guest"
+    t.string   "guest_key"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
