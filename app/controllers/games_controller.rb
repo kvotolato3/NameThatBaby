@@ -9,14 +9,14 @@ class GamesController < ApplicationController
 
   def my_games
     @my_email = current_user.email
-    @my_hosted_games = Game.where(id: Player.where(email: @my_email, is_host: true).pluck(:game_id))
-    @my_played_games = Game.where(id: Player.where(email: @my_email, is_host: false).pluck(:game_id))
+    @my_hosted_games = Game.my_hosted_games(@my_email)
+    @my_played_games = Game.my_played_games(@my_email)
   end
 
   def show
     @my_email = current_user.email
     @players = @game.all_players_array
-    @hosts = @game.players.where(is_host: true)
+    @host_names = @game.host_names_array
   end
 
   def play
@@ -43,14 +43,10 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
-
+    @game.initial_host_user_id = current_user.id
     if @game.save
-      @host = Player.new(name: current_user.name, email: current_user.email, is_host: true, user: current_user, game: @game)
-        if @host.save
-          redirect_to @game, notice: 'Game was successfully created.'
-        else
-          render :new
-        end
+      # after_create :create_initial_host
+      redirect_to @game, notice: 'Game was successfully created.'
     else
       render :new
     end

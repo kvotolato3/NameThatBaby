@@ -13,8 +13,8 @@
   <h2><%= @game.honoree_name %></h2>
   <h4>Hosted by</h4>
 
-  <% @hosts.each do |host| %>
-    <h3><%= host.name %></h3>
+  <% @host_names.each do |name| %>
+    <h3><%= name %></h3>
   <% end %>
 
   <% if @game.require_password %>
@@ -45,8 +45,8 @@
     <% end %>
   </div>
   <div class='player-details'>
-    <p><%= link_to player[:player].name, edit_player_path(player[:player]) %></p>
-    <p><%= player[:player].email %></p>
+    <p><%= link_to player[:name], edit_player_path(player[:id]) %></p>
+    <p><%= player[:email] %></p>
   </div>
 <% end %>
 

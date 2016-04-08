@@ -7,13 +7,22 @@
       <% end %>
     </ul>
   <% end %>
+  <% if @guest_user %>
+    <% if @guest_user.errors.any? %>
+      <ul>
+        <% @guest_user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
 </div>
 
 <%= link_to 'Back', game_path(@game)%>
 
 <h2>New player</h2>
 
-<%= form_for @player, url: game_players_path(@game) do |f| %>
+<%= form_for @player, url: game_players_path(@game), id: 'new_player' do |f| %>
   <div class='form-field'>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -23,8 +32,8 @@
     <%= f.text_field :email %>
   </div>
   <div class='form-field'>
-    <%= f.label :is_host, class: 'checkbox-label' %>
-    <%= f.check_box :is_host %>
+    <%= f.label :role %>
+    <%= f.select :role, choices = Player::ROLES %>
   </div>
   <%= f.submit %>
 <% end %>

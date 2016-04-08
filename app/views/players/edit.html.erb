@@ -6,6 +6,13 @@
       <% end %>
     </ul>
   <% end %>
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
 </div>
 
 <%= link_to 'Back', game_path(@game)%>
@@ -15,15 +22,15 @@
 <%= form_for @player do |f| %>
   <div class='form-field'>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <input type="text" value='<%=@user.name%>' name="player[name]" id="player_name">
   </div>
   <div class='form-field'>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <input type="text" value='<%=@user.email%>' name="player[email]" id="player_email">
   </div>
   <div class='form-field'>
-    <%= f.label :is_host, class: 'checkbox-label' %>
-    <%= f.check_box :is_host %>
+    <%= f.label :role %>
+    <%= f.select :role, choices = Player::ROLES %>
   </div>
 
   <% if @current_upload != nil %>
