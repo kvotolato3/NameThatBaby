@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406165256) do
+ActiveRecord::Schema.define(version: 20160408170314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160406165256) do
     t.string   "aws_s3_bucket"
     t.string   "aws_s3_key"
     t.text     "transloadit_response"
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
