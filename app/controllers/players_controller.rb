@@ -11,7 +11,7 @@ before_action :set_game, only: [:new, :create]
   end
 
   def create
-    email = player_params['email'].downcase
+    email = params['email'].downcase
     @player = Player.new(game: @game, role: 'player')
 
     if user = User.find_by(email: email) # If there is a User associated with the email, use it
@@ -28,7 +28,7 @@ before_action :set_game, only: [:new, :create]
       end
 
     else # Else, if valid, create a guest user
-      guest_user = User.create_guest(player_params['name'], email)
+      guest_user = User.create_guest(params['name'], email)
       if guest_user.persisted?
         @player.user_id = guest_user.id
 

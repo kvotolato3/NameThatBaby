@@ -25,11 +25,11 @@
 <%= form_for @player, url: game_players_path(@game), id: 'new_player' do |f| %>
   <div class='form-field'>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= text_field_tag :name %>
   </div>
   <div class='form-field'>
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= text_field_tag :email %>
   </div>
   <div class='form-field'>
     <%= f.label :role %>
