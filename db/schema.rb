@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160408170314) do
+ActiveRecord::Schema.define(version: 20160408172317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160408170314) do
     t.boolean  "is_creator"
     t.string   "role"
     t.boolean  "is_pending_host"
+    t.integer  "upload_id"
   end
 
   create_table "uploads", force: :cascade do |t|

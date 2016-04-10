@@ -10,7 +10,7 @@ class Game < ActiveRecord::Base
   def players_with_photos_array
     players_array = []
     self.players.each do |player|
-      current_upload = player.uploads.last
+      current_upload = player.current_upload
       user = User.find(player.user_id)
       if current_upload != nil
         aws_s3_bucket = current_upload.aws_s3_bucket
@@ -24,7 +24,7 @@ class Game < ActiveRecord::Base
   def all_players_array
     players_array = []
     self.players.each do |player|
-      current_upload = player.uploads.last
+      current_upload = player.current_upload
       user = User.find(player.user_id)
       if current_upload != nil
         aws_s3_bucket = current_upload.aws_s3_bucket

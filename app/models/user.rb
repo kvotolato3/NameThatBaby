@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
   has_many :players, dependent: :delete_all
   has_many :uploads, dependent: :delete_all
 
-  accepts_nested_attributes_for :players
-
   def self.create_guest(name, email)
     u = User.new(name: name, email: email, is_guest: true, guest_key: User.guest_key())
     u.valid?

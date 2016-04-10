@@ -51,7 +51,7 @@ before_action :set_game, only: [:new, :create]
   end
 
   def edit
-    @current_upload = @player.uploads.last
+    @current_upload = @player.current_upload
     @game = Game.find(@player.game_id)
     @user = User.find(@player.user_id)
   end
