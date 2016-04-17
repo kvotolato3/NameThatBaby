@@ -1,0 +1,17 @@
+<div class='wrapper'>
+  <h2>Sign in</h2>
+
+  <%= form_tag "/users/guest_sign_in" do %>
+    <div class='form-field'>
+      <%= label_tag :email %>
+      <%= @email %>
+      <%= hidden_field_tag 'email', @email%>
+    </div>
+    <div class='form-field'>
+      <%= label_tag '4-digit key' %>
+      <%= password_field_tag '4-digit key', '', autocomplete: "off", autofocus: true %>
+    </div>
+    <%= submit_tag "Sign in as guest" %>
+    <p> or <%= link_to 'Sign Up', new_user_registration_path %> </p>
+  <% end %>
+</div>

@@ -20,6 +20,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.user_status(email)
+    if user = User.find_by(email: email)
+      if user.is_guest == true
+        return "guest"
+      else
+        return "regular"
+      end
+    else
+      return "nil"
+    end
+  end
+
 private
   def self.guest_key
     key = ''
