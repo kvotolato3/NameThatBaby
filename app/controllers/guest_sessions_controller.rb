@@ -4,15 +4,16 @@ class GuestSessionsController < ApplicationController
   end
 
   def create
+
     key = params['4-digit key']
     user = User.find_by(email: params['email'])
     if user.guest_key == key
       session[:guest_key] = key
-      redirect_to edit_player_path(user.players.last)
-      # create a session variable with the key
-      # redirect_to edit_player_path
+      redirect_to player_path(user.players.last)
     else
-      render :new, notice: 'Key was incorrect'
+      @email = session[:email]
+      flash.now[:notice] = 'Key was incorrect'
+      render :new
     end
   end
 end
