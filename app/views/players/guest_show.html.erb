@@ -1,0 +1,23 @@
+<%= link_to 'Edit information', edit_player_path(@player)%>
+
+<h2>My information</h2>
+
+<div class='form-field'>
+  <p>Name</p>
+  <p><%=@user.name%></p>
+</div>
+<div class='form-field'>
+  <p>Email</p>
+  <p><%=@user.email%></p>
+</div>
+
+<% if @current_upload != nil %>
+  <div class='player-photo'>
+    <%= image_tag("https://s3.amazonaws.com/#{@current_upload[:aws_s3_bucket]}/#{@current_upload[:aws_s3_key]}") %>
+  </div>
+<% else %>
+  <div class='player-photo'>
+    <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
+  </div>
+<% end %>
+

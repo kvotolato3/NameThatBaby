@@ -1,23 +1,8 @@
-<div class='errors'>
-  <% if @player.errors.any? %>
-    <ul>
-      <% @player.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-  <% if @user.errors.any? %>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  <% end %>
-</div>
+<%= render 'errors', {player: @player, user: @user} %>
 
 <%= link_to 'Back', game_path(@game)%>
 
-<h2>Edit Player</h2>
+<h2>Edit player</h2>
 
 <%= form_for @player do |f| %>
   <div class='form-field'>

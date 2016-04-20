@@ -1,0 +1,16 @@
+<div class='errors'>
+  <% if player.errors.any? %>
+    <ul>
+      <% player.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <% if user.errors.any? %>
+    <ul>
+      <% user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
