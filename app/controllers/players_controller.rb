@@ -54,6 +54,14 @@ before_action :set_game, only: [:new, :create]
     @current_upload = @player.current_upload
     @game = Game.find(@player.game_id)
     @user = User.find(@player.user_id)
+    binding.pry
+    if user_signed_in?
+      render :edit
+    elsif session[:guest_key] && @user.guest_key == session[:guest_key]
+      render :guest_edit
+    else
+      redirect_to root_path
+    end
   end
 
   def update

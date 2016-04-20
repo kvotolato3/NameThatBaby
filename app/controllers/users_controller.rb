@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   end
 
   def email_lookup
-    email = params["email"].downcase
+    email = params['email'].downcase
     user_status = User.user_status(email)
     if user_status == 'guest'
       session[:email] = email
