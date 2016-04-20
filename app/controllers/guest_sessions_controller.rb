@@ -4,7 +4,6 @@ class GuestSessionsController < ApplicationController
   end
 
   def create
-
     key = params['4-digit key']
     user = User.find_by(email: params['email'])
     if user.guest_key == key
