@@ -1,0 +1,15 @@
+<% if current_upload != nil %>
+  <div class='player-photo'>
+    <%= image_tag("https://s3.amazonaws.com/#{current_upload[:aws_s3_bucket]}/#{current_upload[:aws_s3_key]}") %>
+  </div>
+  <div class='photo-link'>
+    <%= link_to 'Change photo', new_player_upload_path(player) %>
+  </div>
+<% else %>
+  <div class='player-photo'>
+    <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
+  </div>
+  <div class='photo-link'>
+    <%= link_to 'New photo', new_player_upload_path(player) %>
+  </div>
+<% end %>

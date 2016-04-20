@@ -5,30 +5,10 @@
 <h2>Edit my information</h2>
 
 <%= form_for @player do |f| %>
-  <div class='form-field'>
-    <%= f.label :name %>
-    <input type="text" value='<%=@user.name%>' name="player[name]" id="player_name">
-  </div>
-  <div class='form-field'>
-    <%= f.label :email %>
-    <input type="text" value='<%=@user.email%>' name="player[email]" id="player_email">
-  </div>
+  <%= render 'name_and_email', {user: @user, f: f} %>
 
-  <% if @current_upload != nil %>
-    <div class='player-photo'>
-      <%= image_tag("https://s3.amazonaws.com/#{@current_upload[:aws_s3_bucket]}/#{@current_upload[:aws_s3_key]}") %>
-    </div>
-    <div class='photo-link'>
-      <%= link_to 'Change photo', new_player_upload_path(@player) %>
-    </div>
-  <% else %>
-    <div class='player-photo'>
-      <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
-    </div>
-    <div class='photo-link'>
-      <%= link_to 'New photo', new_player_upload_path(@player) %>
-    </div>
-  <% end %>
+  <%= render 'current_upload', {player: @player, current_upload: @current_upload} %>
+
   <%= f.submit %>
 <% end %>
 
