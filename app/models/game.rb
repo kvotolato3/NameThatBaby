@@ -55,6 +55,10 @@ class Game < ActiveRecord::Base
     return Game.where(id: Player.where(user: user).where(role: 'player').pluck(:game_id))
   end
 
+  def uploads_count
+    self.players.where.not(upload_id: nil).count
+  end
+
 private
   def create_initial_host
     Player.create(role: 'host', is_creator: true, user_id: @initial_host_user_id, game_id: self.id)

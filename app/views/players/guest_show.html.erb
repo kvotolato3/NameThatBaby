@@ -1,15 +1,33 @@
-<%= link_to 'Edit information', edit_player_path(@player)%>
+<h2>Shower information</h2>
+  <div class='game-info'>
+    <h4>In honor of:</h4>
+      <%= @game.honoree_name %>
+    <h4>Game host(s):</h4>
+      <% @host_names.each do |name| %>
+        <%= name %><br>
+      <% end %>
+    <h4>Date:</h4>
+      <%= @game.event_date.to_formatted_s(:long) %>
+    <h4>Photo submissions</h4>
+      <p>So far, <%= @game_uploads_count %> out of <%= @game_players_count %> players have submitted photos.</p>
+  </div>
 
-<h2>My information</h2>
+<h2>My information
+    <%= link_to(edit_player_path(@player)) do %>
+      <i class="fa fa-pencil"></i>
+    <% end %>
+</h2>
 
-<div class='form-field'>
-  <p>Name</p>
-  <p><%=@user.name%></p>
-</div>
-<div class='form-field'>
-  <p>Email</p>
-  <p><%=@user.email%></p>
-</div>
+
+  <div class='form-field'>
+    <h5>Name</h5>
+    <p><%=@user.name%></p>
+  </div>
+
+  <div class='form-field'>
+    <h5>Email</h5>
+    <p><%=@user.email%></p>
+  </div>
 
 <% if @current_upload != nil %>
   <div class='player-photo'>
@@ -20,4 +38,15 @@
     <%= image_tag("https://s3.amazonaws.com/kathleen-namethatbaby/photos/baby_icon_gray.png") %>
   </div>
 <% end %>
+
+<h6>Other showers I'm invited to</h6>
+  <ul>
+    <% @user_players_games.each do |i| %>
+      <li>
+        <%= link_to(player_path(i[:player])) do %>
+          <%= i[:game].honoree_name %>' s baby shower on <%= i[:game].event_date.to_formatted_s(:long) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
 

@@ -26,10 +26,14 @@ p {
 h4,
 blockquote, ul,
 fieldset,
-ol, dl, dir,
-h5  {
+ol, dl, dir
+  {
   font-size: .83em;
   margin: 1.5em 0;
+}
+
+h5 {
+  font-size: .83em;
 }
 
 h6  {
@@ -52,7 +56,6 @@ em {
 a {
   text-decoration: none;
   color: #263D42;
-  font-size: .83em;
 }
 
 a:hover {

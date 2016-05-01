@@ -10,6 +10,10 @@ before_action :set_game, only: [:new, :create]
     @user = User.find(@player.user_id)
     @game = Game.find(@player.game_id)
     @current_upload = @player.current_upload
+    @host_names = @game.host_names_array
+    @game_uploads_count = @game.uploads_count
+    @game_players_count = @game.players.count
+    @user_players_games = @user.players_games_array(@player)
     if session[:guest_key] && @user.guest_key == session[:guest_key]
       render :guest_show
     else
@@ -77,6 +81,7 @@ before_action :set_game, only: [:new, :create]
   def update
     @game = Game.find(@player.game_id)
     @user = User.find(@player.user_id)
+    @current_upload = @player.current_upload
     if user_signed_in?
       if @user.update(email: player_params['email'], name: player_params['name'])
         if @player.role != player_params['role']

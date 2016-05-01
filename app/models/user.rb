@@ -32,6 +32,21 @@ class User < ActiveRecord::Base
     end
   end
 
+  def players_games_array(player_to_exclude=nil)
+    games = []
+    self.players.each do |player|
+      if player_to_exclude == player
+        # it means that
+        # a) player_to_exclude was passed in, and
+        # b) the player_to_exclude should not be included in the array
+        # therefore, do nothing
+      else
+        games.push({:player => player, :game => Game.find(player.game_id)})
+      end
+    end
+    return games
+  end
+
 private
   def self.guest_key
     key = ''
