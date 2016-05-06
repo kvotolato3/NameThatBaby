@@ -39,14 +39,16 @@
   </div>
 <% end %>
 
-<h6>Other showers I'm invited to</h6>
-  <ul>
-    <% @user_players_games.each do |i| %>
-      <li>
-        <%= link_to(player_path(i[:player])) do %>
-          <%= i[:game].honoree_name %>' s baby shower on <%= i[:game].event_date.to_formatted_s(:long) %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+<% if @user_players_games.empty? == false %>
+  <h6>Other showers I'm invited to</h6>
+    <ul>
+      <% @user_players_games.each do |i| %>
+        <li>
+          <%= link_to(player_path(i[:player])) do %>
+            <%= i[:game].honoree_name %>' s baby shower on <%= i[:game].event_date.to_formatted_s(:long) %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+<% end %>
 
