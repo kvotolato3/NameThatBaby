@@ -1,6 +1,7 @@
 class PlayersController < ApplicationController
 before_action :set_player, only: [:edit, :update, :destroy, :show]
 before_action :set_game, only: [:new, :create]
+before_action :authenticate_user!, only: [:index, :new, :destroy]
 
   def index
     @players = Player.all

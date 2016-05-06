@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
  before_action :set_game, only: [:show, :play, :edit, :update, :destroy]
+ before_action :authenticate_user!
 
   def landing_page
     if user_signed_in?
