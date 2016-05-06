@@ -27,8 +27,10 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     # reassign players from guest to current user
+    # and set is_pending_host to false if true
     Player.where(user: guest).each do |player|
       player.update(user: current_user)
+      player.update(is_pending_host: false) if player.is_pending_host == true
     end
 
     # delete guest user
