@@ -8,12 +8,20 @@
 
     <div class='form-field'>
     <%= f.label :name %>
-    <%= f.text_field :name, autofocus: true %>
+    <% if @name %>
+      <%= f.text_field :name, value: @name, autofocus: true %>
+    <% else %>
+      <%= f.text_field :name, autofocus: true %>
+    <% end %>
     </div>
 
     <div class='form-field'>
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <% if @email %>
+        <%= f.email_field :email, value: @email %>
+      <% else %>
+        <%= f.email_field :email %>
+      <% end %>
     </div>
 
     <div class='form-field'>
