@@ -19,25 +19,26 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def logging_in(email)
-    guest = User.find_by(email: email)
+    # only execute the following if there is a guest
+    if guest = User.find_by(email: email)
+      # reassign uploads from guest to current user
+      Upload.where(user: guest).each do |upload|
+        upload.update(user: current_user)
+      end
 
-    # reassign uploads from guest to current user
-    Upload.where(user: guest).each do |upload|
-      upload.update(user: current_user)
+      # reassign players from guest to current user
+      # and set is_pending_host to false if true
+      Player.where(user: guest).each do |player|
+        player.update(user: current_user)
+        player.update(is_pending_host: false) if player.is_pending_host == true
+      end
+
+      # delete guest user
+      guest.destroy
+
+      # delete session variable
+      session[:email] = nil
     end
-
-    # reassign players from guest to current user
-    # and set is_pending_host to false if true
-    Player.where(user: guest).each do |player|
-      player.update(user: current_user)
-      player.update(is_pending_host: false) if player.is_pending_host == true
-    end
-
-    # delete guest user
-    guest.destroy
-
-    # delete session variable
-    session[:email] = nil
   end
 
   protected

@@ -1,7 +1,7 @@
 <div class='wrapper'>
   <%= link_to "Back", root_path %>
 
-  <h2>Sign up</h2>
+  <h2><%= session[:email] ? 'Convert to User' : 'Sign up' %></h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
@@ -34,7 +34,13 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
-    <div><%= f.submit "Sign up" %></div>
+    <div>
+      <% if session[:email] %>
+        <%= f.submit "Convert to User" %>
+      <% else %>
+        <%= f.submit "Sign up" %>
+      <% end %>
+    </div>
   <% end %>
 
   <%= render "devise/shared/links" %>

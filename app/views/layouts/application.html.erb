@@ -22,6 +22,10 @@
               <% end %>
               <strong> | </strong>
               <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+            <% elsif session[:email] %>
+              <%= link_to 'Convert to User', new_user_registration_path %>
+            <% else %>
+              <%= link_to 'Sign Up', new_user_registration_path %>
             <% end %>
           </div>
         </nav>
@@ -32,7 +36,9 @@
           <%= yield %>
         <div class='params_in_dev'>
           <% if Rails.env.development? %>
-            <%= params.inspect %>
+            <%= params.inspect %> <br>
+            Session email: <%= session[:email] %> <br>
+            Session key: <%=  session[:guest_key] %>
           <% end %>
         </div>
       </div>

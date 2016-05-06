@@ -4,7 +4,11 @@ class GamesController < ApplicationController
   def landing_page
     if user_signed_in?
       redirect_to my_games_path
+    else
+      # Reset session variable if user returns to this page
+      session[:email] = nil if session[:email]
     end
+
   end
 
   def my_games

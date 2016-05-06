@@ -1,4 +1,6 @@
 <div class='wrapper'>
+  <%= link_to "Back", root_path %>
+
   <h2>Sign in</h2>
 
   <%= form_tag "/users/guest_sign_in" do %>
@@ -11,7 +13,7 @@
       <%= label_tag '4-digit key' %>
       <%= password_field_tag '4-digit key', '', autocomplete: "off", autofocus: true %>
     </div>
-    <%= submit_tag "Sign in as guest" %>
-    <p> or <%= link_to 'Sign Up', new_user_registration_path %> </p>
+    <%= submit_tag "Continue" %>
+    <p> or <%= link_to 'Convert to User', new_user_registration_path %> </p>
   <% end %>
 </div>
