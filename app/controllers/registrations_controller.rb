@@ -36,8 +36,9 @@ class RegistrationsController < Devise::RegistrationsController
       # delete guest user
       guest.destroy
 
-      # delete session variable
+      # delete session variable(s)
       session[:email] = nil
+      session[:guest_key] = nil if session[:guest_key]
     end
   end
 
