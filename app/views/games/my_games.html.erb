@@ -12,10 +12,10 @@
     </ul>
   <h2>Games I'm Playing</h2>
     <ul>
-      <% @my_played_games.each do |game| %>
+      <% @players_games_array.each do |i| %>
         <li>
-          <%= link_to(game_path(game)) do %>
-            <%= game.event_date %> | <%= game.honoree_name %> | password protected: <%= game.require_password %>
+          <%= link_to(player_path(i[:player])) do %>
+            <%= i[:game].honoree_name %>' s baby shower on <%= i[:game].event_date.to_formatted_s(:long) %>
           <% end %>
         </li>
       <% end %>

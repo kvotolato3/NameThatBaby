@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
  before_action :set_game, only: [:show, :play, :edit, :update, :destroy]
- before_action :authenticate_user!
+ before_action :authenticate_user!, except: [:landing_page]
 
   def landing_page
     if user_signed_in?
@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   def my_games
     @my_email = current_user.email
     @my_hosted_games = Game.my_hosted_games(@my_email)
-    @my_played_games = Game.my_played_games(@my_email)
+    @players_games_array = current_user.players_games_array(player_to_exclude=nil, exclude_hosts = true)
   end
 
   def show

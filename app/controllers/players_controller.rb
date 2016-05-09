@@ -14,8 +14,10 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
     @host_names = @game.host_names_array
     @game_uploads_count = @game.uploads_count
     @game_players_count = @game.players.count
-    @user_players_games = @user.players_games_array(@player)
-    if session[:guest_key] && @user.guest_key == session[:guest_key]
+    @user_players_games = @user.players_games_array(@player, exclude_hosts = true)
+    if user_signed_in?
+      render :guest_show
+    elsif session[:guest_key] && @user.guest_key == session[:guest_key]
       render :guest_show
     else
       redirect_to root_path
@@ -71,7 +73,11 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
     @game = Game.find(@player.game_id)
     @user = User.find(@player.user_id)
     if user_signed_in?
-      render :edit
+      if @player.role == 'host'
+        render :edit
+      else
+        render :guest_edit
+      end
     elsif session[:guest_key] && @user.guest_key == session[:guest_key]
       render :guest_edit
     else
@@ -84,7 +90,15 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
     @user = User.find(@player.user_id)
     @current_upload = @player.current_upload
     if user_signed_in?
-      if @user.update(email: player_params['email'], name: player_params['name'])
+      # if user's role is player, only do player things
+      if @player.role == 'player'
+        if @user.update(email: player_params['email'], name: player_params['name'])
+          redirect_to player_path(@player), notice: 'Your information has been saved!'
+        else
+          render :guest_edit
+        end
+      # if user's role is host, do host things
+      elsif @user.update(email: player_params['email'], name: player_params['name'])
         if @player.role != player_params['role']
           if player_params['role'] == 'host'
             @player.make_host
@@ -105,16 +119,16 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
       else
         render :edit
       end
-     elsif session[:guest_key] && @user.guest_key == session[:guest_key]
+
+      # if everything is valid, render guest_show with notice: Your information has been saved!
+      # if not valid, render guest_edit
+    elsif session[:guest_key] && @user.guest_key == session[:guest_key]
       if @user.update(email: player_params['email'], name: player_params['name'])
         redirect_to player_path(@player), notice: 'Your information has been saved!'
       else
         render :guest_edit
       end
-      # if everything is valid, render guest_show with notice: Your information has been saved!
-      # if not valid, render guest_edit
-     end
-
+    end
   end
 
   def destroy

@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def players_games_array(player_to_exclude=nil)
+  def players_games_array(player_to_exclude=nil, exclude_hosts=false)
     games = []
     self.players.each do |player|
       if player_to_exclude == player
@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
         # a) player_to_exclude was passed in, and
         # b) the player_to_exclude should not be included in the array
         # therefore, do nothing
+      elsif exclude_hosts == true
+        if player.role == 'player'
+          games.push({:player => player, :game => Game.find(player.game_id)})
+        end
       else
         games.push({:player => player, :game => Game.find(player.game_id)})
       end

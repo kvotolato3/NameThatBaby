@@ -50,9 +50,9 @@ class Game < ActiveRecord::Base
     return Game.where(id: Player.where(user: user).where(role: 'host').pluck(:game_id))
   end
 
-  def self.my_played_games(email)
+  def self.my_players(email)
     user = User.find_by(email: email)
-    return Game.where(id: Player.where(user: user).where(role: 'player').pluck(:game_id))
+    return Player.where(user: user).where(role: 'player')
   end
 
   def uploads_count
