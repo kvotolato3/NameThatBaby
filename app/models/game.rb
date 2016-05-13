@@ -21,6 +21,10 @@ class Game < ActiveRecord::Base
     return players_array
   end
 
+  def player(user)
+    self.players.find_by(user: user)
+  end
+
   def all_players_array
     players_array = []
     self.players.each do |player|

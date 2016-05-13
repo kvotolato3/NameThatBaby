@@ -32,6 +32,7 @@ class GamesController < ApplicationController
   end
 
   def edit
+    @game.player(current_user).is_creator ? @is_creator = true : @is_creator = false
   end
 
   def update
@@ -58,8 +59,14 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game.destroy
-    redirect_to my_games_path
+    # if the person destroying the game is the creator
+    if @game.player(current_user).is_creator == true
+      @game.destroy
+      redirect_to my_games_path
+    else
+      flash.now[:notice] = 'Game can only be deleted by its creator.'
+      render :edit
+    end
   end
 
 
