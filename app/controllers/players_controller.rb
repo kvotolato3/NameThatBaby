@@ -72,8 +72,10 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
     @current_upload = @player.current_upload
     @game = Game.find(@player.game_id)
     @user = User.find(@player.user_id)
+
     if user_signed_in?
-      if @player.role == 'host'
+      current_player = @game.player(current_user) # lookup player associated with current user
+      if current_player.role == 'host' # if the logged in user is a host, they have full access
         render :edit
       else
         render :guest_edit
