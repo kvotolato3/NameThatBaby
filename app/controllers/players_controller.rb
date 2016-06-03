@@ -92,8 +92,9 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
     @user = User.find(@player.user_id)
     @current_upload = @player.current_upload
     if user_signed_in?
+      current_player = @game.player(current_user)
       # if user's role is player, only do player things
-      if @player.role == 'player'
+      if current_player.role == 'player'
         if @user.update(email: player_params['email'], name: player_params['name'])
           redirect_to player_path(@player), notice: 'Your information has been saved!'
         else
@@ -101,6 +102,8 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
         end
       # if user's role is host, do host things
       elsif @user.update(email: player_params['email'], name: player_params['name'])
+
+        # if the user wants to change the player's role...
         if @player.role != player_params['role']
           if player_params['role'] == 'host'
             @player.make_host
