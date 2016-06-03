@@ -13,11 +13,14 @@ html, body {
   padding: 2% 2% 5em 2%;
 }
 
-header {
- margin: 0 0 30px 0;
- width: 100%;
- background-image: image-url('https://s3.amazonaws.com/kathleen-namethatbaby/img/paisley.png');
-}
+#logo a {
+  float: left;
+  padding-left: 1.5%;
+  padding-top: .5em;
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  color: #8E6C88;
+  }
 
 nav {
   top: 0;
@@ -258,7 +261,7 @@ footer {
   position: absolute;
   bottom: 0;
   left: 0;
-  color: #CCDBDC;
+  color: #8E6C88;
 }
 
 .signature-container {
@@ -271,6 +274,7 @@ footer {
   display:table-cell;
   text-align:center;
   vertical-align:middle;
+  font-size: 1em;
 }
 
 .params_in_dev {

@@ -14,21 +14,24 @@
   <body>
     <div class='container'>
       <div class='header'>
-         <nav>
-          <div class='nav-links'>
-            <% if user_signed_in? %>
-              <%= link_to(edit_user_registration_path) do %>
-                <%= current_user.email %>
+        <div id='logo'>
+          <%= link_to 'Name That Baby', root_path %>
+        </div>
+          <nav>
+            <div class='nav-links'>
+              <% if user_signed_in? %>
+                <%= link_to(edit_user_registration_path) do %>
+                  <%= current_user.email %>
+                <% end %>
+                <strong> | </strong>
+                <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+              <% elsif session[:email] %>
+                <%= link_to 'Convert to User', new_user_registration_path %>
+              <% else %>
+                <%= link_to 'Sign Up', new_user_registration_path %>
               <% end %>
-              <strong> | </strong>
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-            <% elsif session[:email] %>
-              <%= link_to 'Convert to User', new_user_registration_path %>
-            <% else %>
-              <%= link_to 'Sign Up', new_user_registration_path %>
-            <% end %>
-          </div>
-        </nav>
+            </div>
+          </nav>
         <div class='notice'><p><%= notice %></p></div>
         <div class='alert'><p><%= alert %></p></div>
       </div>
