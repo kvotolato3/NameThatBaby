@@ -1,17 +1,35 @@
-
 /* Extra Small Devices, Phones */
 @media only screen and (min-width : 480px) {
 
+  .content {
+    margin: 0 auto;
+    width: 480px;
+    padding: 2% 2% 5em 2%;
+  }
+
+  .question {
+    float: left;
+    width: 200px;
+    padding: 20px;
+  }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-
+  .content {
+  margin: 0 auto;
+  width: 720px;
+  padding: 2% 2% 5em 2%;
+  }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-
+  .content {
+    margin: 0 auto;
+    width: 960px;
+    padding: 2% 2% 5em 2%;
+  }
 }
 
 
