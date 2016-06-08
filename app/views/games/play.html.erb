@@ -1,16 +1,6 @@
-
 <script>
 var password = '<%= @game.password %>';
 </script>
-
-<header>
-  <h1>Name That Baby!</h1>
-  <h3>Created especially for <%= @honoree_name %>'s baby shower on <%= @event_date %></h3>
-</header>
-
-<div class='instructions'>
-  <h4>Using the answer sheet, write down which guest belongs to each baby photo.</h4>
-</div>
 
 <div id='players_wrapper'>
   <% if @players == [] %>

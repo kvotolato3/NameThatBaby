@@ -213,13 +213,6 @@ header h3 {
   text-align: right;
 }
 
-#players_wrapper {
-  max-width: 1040px;
-  background-color: rgb(216,217,192);
-  margin: 0 auto;
-  padding: 0.35rem;
-}
-
 .instructions > h4 {
   text-align: center;
   margin-top: 0;
@@ -231,8 +224,9 @@ header h3 {
 }
 
 .question {
-  float: left;
-  margin: 0.25rem;
+  width: 200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 img {
