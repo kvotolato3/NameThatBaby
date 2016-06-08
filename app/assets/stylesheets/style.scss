@@ -282,19 +282,21 @@ footer {
   padding: 0.35rem;
 }
 .pw-form {
-  padding: .2rem 0;
   float: right;
+  width: 50%;
 }
 
 i.fa-key, i.fa-unlock {
   cursor: pointer;
-  height: 1rem;
+  height: 1em;
   color: rgb(171,92,114);
+  float: left;
 }
 
-#pw {
-  width: 5rem;
-  height: 1rem;
+input[type='password']#pw {
+  display: inline-block;
+  width: calc(100% - 20px);
+
 }
 
 /***************
