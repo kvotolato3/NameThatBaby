@@ -137,8 +137,6 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
   end
 
   def destroy
-    @game = Game.find(@player.game_id) # Needed in case of render :edit
-    @user = User.find(@player.user_id) # Needed in case of render :edit
     if @player.is_creator? == false
       if @player.destroy
         redirect_to @game, notice: 'Player was successfully deleted.'
@@ -146,8 +144,8 @@ before_action :authenticate_user!, only: [:index, :new, :destroy]
         render :edit
       end
     else
-      flash.now[:notice] = 'Ooops! This player cannot be deleted because he/she is the creator.'
-      render :edit
+      flash[:notice] = 'Ooops! This player cannot be deleted because he/she is the creator.'
+      redirect_to edit_player_path(@player)
     end
   end
 
