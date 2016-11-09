@@ -312,8 +312,8 @@ FLIP
   position: relative;
 }
 .flip .card.flipped {
-  -webkit-transform: rotatex(-180deg);
-  transform: rotateX(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
 }
 .flip .card {
   width: 100%;
@@ -339,8 +339,8 @@ FLIP
   transform: rotateX(0deg);
 }
 .flip .card .back {
-  -webkit-transform: rotatex(-180deg);
-  transform: rotatex(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
   text-align: center;
   line-height: 200px;
   font-size: 1.5rem;
