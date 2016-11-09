@@ -1,4 +1,4 @@
-0html, body {
+html, body {
   height: 100%;
 }
 
@@ -283,20 +283,18 @@ footer {
 }
 .pw-form {
   float: right;
-  width: 50%;
+  text-align: right;
 }
 
 i.fa-key, i.fa-unlock {
   cursor: pointer;
   height: 1em;
   color: rgb(171,92,114);
-  float: left;
 }
 
 input[type='password']#pw {
   display: inline-block;
-  width: calc(100% - 20px);
-
+  width: 50%;
 }
 
 /***************
