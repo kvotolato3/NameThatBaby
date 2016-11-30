@@ -37,7 +37,11 @@ var password = '<%= @game.password %>';
     <input type='password' id='pw' style = "display: none" placeholder="Password"/>
   </div>
   <div>
-    <%= link_to 'quit', game_path(@game) %>
+    <% if params[:action] == 'play' %>
+      <%= link_to 'quit', game_path(@game) %>
+    <% else %>
+      <%= link_to 'quit', root_path %>
+    <% end %>
   </div>
   <br class='clear'/>
 </div>
