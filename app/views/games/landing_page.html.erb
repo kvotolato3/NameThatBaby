@@ -1,7 +1,11 @@
-<div class='wrapper'>
+
   <%= form_tag(email_lookup_path, method: "get") do %>
     <%= label_tag(:email, "Please enter email address:") %>
     <%= text_field_tag :email, nil, options = {autofocus: true} %>
     <%= submit_tag("Next") %>
   <% end %>
+
+<div id='demo-link-wrapper'>
+  <%= link_to 'Demo without logging in', demo_path, {id: 'demo-link'}%>
 </div>
+

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
     member do
       get :play
     end
-
     get 'my_games', on: :collection, :as => 'my'
 
     resources :players, only:[:new, :create]
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
     resources :uploads, only:[:new, :create]
   end
 
+  get '/demo', :to => 'games#demo'
   get '/users/email_lookup', :to => 'users#email_lookup', :as => 'email_lookup'
   get '/users/guest_sign_in', :to => 'guest_sessions#new', :as => 'new_guest_session'
   post '/users/guest_sign_in', :to => 'guest_sessions#create', :as => 'create_guest_session'

@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
  before_action :set_game, only: [:show, :play, :edit, :update, :destroy]
- before_action :authenticate_user!, except: [:landing_page]
+ before_action :authenticate_user!, except: [:landing_page, :demo]
 
   def landing_page
     if user_signed_in?
@@ -69,6 +69,14 @@ class GamesController < ApplicationController
     end
   end
 
+  def demo
+    @game = Game.find_by(event_date: 20150322)
+    @event_date = @game.event_date.to_formatted_s(:long_ordinal)
+    @honoree_name = @game.honoree_name
+    @players = @game.players_with_photos_array
+
+    render template:  'games/play.html.erb'
+  end
 
 private
   def set_game
