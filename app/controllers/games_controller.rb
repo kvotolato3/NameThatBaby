@@ -25,10 +25,7 @@ class GamesController < ApplicationController
   end
 
   def play
-    game = Game.find(params[:id])
-    @event_date = game.event_date.to_formatted_s(:long_ordinal)
-    @honoree_name = game.honoree_name
-    @players = @game.players_with_photos_array
+    set_play_variables(@game)
   end
 
   def edit
@@ -71,16 +68,19 @@ class GamesController < ApplicationController
 
   def demo
     @game = Game.find_by(event_date: 20150322)
-    @event_date = @game.event_date.to_formatted_s(:long_ordinal)
-    @honoree_name = @game.honoree_name
-    @players = @game.players_with_photos_array
-
+    set_play_variables(@game)
     render template:  'games/play.html.erb'
   end
 
 private
   def set_game
     @game = Game.find(params[:id])
+  end
+
+  def set_play_variables(game)
+    @event_date = game.event_date.to_formatted_s(:long_ordinal)
+    @honoree_name = game.honoree_name
+    @players = game.players_with_photos_array
   end
 
   def game_params
