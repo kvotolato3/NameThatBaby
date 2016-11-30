@@ -6,7 +6,14 @@ $(document).ready(function(){
 
 var App = App || {};
 
-var locked = true;
+var locked;
+
+App.setLocked = function() {
+  locked = requirePassword ? true : false;
+  if (locked === false) {
+    $('#pw-form').hide();
+  }
+};
 
 App.flip = function() {
   if (locked === false) {

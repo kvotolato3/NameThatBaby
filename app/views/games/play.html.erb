@@ -1,7 +1,3 @@
-<script>
-var password = '<%= @game.password %>';
-</script>
-
 <div id='players_wrapper'>
   <% if @players == [] %>
     <p>There are no photos to display</p>
@@ -31,7 +27,7 @@ var password = '<%= @game.password %>';
   <br class='clear'/>
 </div>
 <div class='form-container'>
-  <div class='pw-form'>
+  <div class='pw-form' id='pw-form'>
     <i class="fa fa-key unlock-answers"></i>
     <i class='fa fa-unlock lock-answers' style = "display: none"></i>
     <input type='password' id='pw' style = "display: none" placeholder="Password"/>
@@ -45,6 +41,12 @@ var password = '<%= @game.password %>';
   </div>
   <br class='clear'/>
 </div>
+
+<script>
+  var password = '<%= @game.password %>';
+  var requirePassword = <%= @game.require_password %>;
+  App.setLocked();
+</script>
 
 
 
