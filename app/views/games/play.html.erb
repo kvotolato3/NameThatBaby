@@ -16,7 +16,11 @@ var password = '<%= @game.password %>';
                 <%= image_tag("https://s3.amazonaws.com/#{player[:aws_s3_bucket]}/#{player[:aws_s3_key]}") %>
               </div>
               <div class='face back'>
-                <%= player[:name] %>
+                <% if params[:action] == 'play' %>
+                  <%= player[:name] %>
+                <% else %>
+                  <%= Faker::Name.name %>
+                <% end %>
               </div>
             </div>
           </div>
